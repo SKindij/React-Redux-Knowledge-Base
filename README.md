@@ -54,6 +54,34 @@
     - extract common logic into Hook
     - best practices
 
+## React Router
+
++ Setting up Routes
+    - set up
+    - create components
+    - Switch component
+    - Redirect component
++ Route Parameters
+    - useParams hook
+    - useLocation hook
++ Nested Routes
+    - useRouteMatch hook
++ Programmatic Navigation
+    - useHistory hook
+    - useLocation hook
++ Route Guards
+    - prevent navigation
+    - Prompt component
++ Advanced Topics
+    - Server-side Rendering
+    - code-splitting
+    - lazy-loading
+    - animation
+
+
+
+
+
 
 
 ___
