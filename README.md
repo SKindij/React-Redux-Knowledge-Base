@@ -2,7 +2,6 @@
 
 
 ## React Fundamentals
-
 + Сomponents
     - JSX syntax
     - class component
@@ -30,9 +29,9 @@
     - different ways to style components
     - CSS-in-JS libraries like Styled Components
     - best practices for styling components
-    
-## React Hooks   
 
+
+## React Hooks   
 + State Hook
     - how to use & initialize
     - how to update state
@@ -54,8 +53,8 @@
     - extract common logic into Hook
     - best practices
 
-## React Router
 
+## React Router
 + Setting up Routes
     - set up
     - create components
@@ -77,6 +76,27 @@
     - code-splitting
     - lazy-loading
     - animation
+
+
+## Redux
++ Store
++ Actions
++ Reducers
++ Store Subscriptions
++ React-Redux
+    - Provider component
+    - connect function
++ Middleware
++ DevTools
++ Advanced Topics
+    - selectors
+    - immutability
+    - testing
+
+
+
+
+
 
 
 
