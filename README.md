@@ -33,7 +33,26 @@
     
 ## React Hooks   
 
-
++ State Hook
+    - how to use & initialize
+    - how to update state
+    - use multiple state variables
++ Effect Hook
+    - componentDidMount, componentDidUpdate, and componentWillUnmount
+    - use Hook to fetch data
+    - use Hook to handle side effects
++ useContext Hook
+    - Context API
+    - Context object
+    - how to avoid prop drilling
++ useReducer Hook
+    - difference between State and useReducer Hook
+    - use Hook to manage complex state
+    - use Hook with useContext
++ Custom Hooks
+    - how to create them
+    - extract common logic into Hook
+    - best practices
 
 
 
