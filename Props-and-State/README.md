@@ -97,7 +97,9 @@
 > >  
 > >  export default CarProduction;
 > > ```
-
+> > > &emsp;_In the CarProduction class component, ``this.handleIncrement`` and ``this.handleReset`` are event handler methods that are called when the "Increment" and "Reset" buttons are clicked._\
+> > > &emsp;_In JavaScript, the value of `this` is determined by how a function is called. When an event handler is triggered by an event like a `button click`, the value of `this` can be different than what we expect._\
+> > > &emsp;_To ensure that `this` refers to the component instance within these event handlers, we need to `bind` them to the component instance using the bind method. This creates a new `function` with a fixed `this value` that can be called later._
 
 
 
