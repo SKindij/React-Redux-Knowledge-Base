@@ -1,6 +1,6 @@
 # Props and State
 
-&emsp; Props (short for properties) are a way to pass data from a parent component to a child component.
+### ``Props`` (_short for properties_) are a way to pass data from a parent component to a child component.
 * props are read-only: 
   + once you pass props from a parent component to a child component, the child component cannot modify those props;
   + if you need to change the value of a prop, you should do it in the parent component;
@@ -56,8 +56,47 @@
 > >  export default ParentComponent;
 > > ```
 
+### ``State`` is an internal data store of a component.
 
+&emsp; It's used to manage data that can change over time, and is typically used for things like user input, component interactions, or network responses.
 
+&emsp; A component's state is private and can only be accessed and modified within the component itself. When state changes, React automatically re-renders the component and its children to reflect the new state.
+
+> _Here's an example of managing state within a component:_
+> > ```javascript
+> >  import React, { Component } from 'react';
+> >  
+> >  class CarProduction extends Component {
+> >    constructor(props) {
+> >      super(props);
+> >      // initializing mondeoCount state in constructor method
+> >      this.state = {
+> >        mondeoCount: 0
+> >      };  
+> >      this.handleIncrement = this.handleIncrement.bind(this);
+> >      this.handleReset = this.handleReset.bind(this);
+> >    }
+> >    // defining event handler methods that update state using this.setState
+> >    handleIncrement() {
+> >      this.setState({ mondeoCount: this.state.mondeoCount + 1 });
+> >    }
+> >    handleReset() {
+> >      this.setState({ mondeoCount: 0 });
+> >    }
+> >    // we're accessing mondeoCount using this.state.mondeoCount and binding event handlers to appropriate buttons
+> >    render() {
+> >      return (
+> >        <div>
+> >          <p>Mondeo cars produced this week: {this.state.mondeoCount}</p>
+> >          <button onClick={this.handleIncrement}>Increment</button>
+> >          <button onClick={this.handleReset}>Reset</button>
+> >        </div>
+> >      );
+> >    }
+> >  }
+> >  
+> >  export default CarProduction;
+> > ```
 
 
 
