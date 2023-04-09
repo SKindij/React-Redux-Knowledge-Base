@@ -2,16 +2,16 @@
 
 
 ## React Fundamentals
-+ Сomponents
++ [Сomponents](https://github.com/SKindij/Getting-Started-React.js/tree/main/Components)
     - JSX syntax
     - class component
     - functional component
     - simple component
-+ Props
++ [Props](https://github.com/SKindij/Getting-Started-React.js/tree/main/Props-and-State)
     - how to pass data from parent to child components
-+ State
++ [State](https://github.com/SKindij/Getting-Started-React.js/tree/main/Props-and-State)
     - how to manage state within a component
-+ Component Lifecycle
++ [Component Lifecycle](https://github.com/SKindij/Getting-Started-React.js/tree/main/Component-Lifecycle)
     - how to use methods to control component behavior
     - common use cases for each method
 + Handling Events
@@ -33,6 +33,7 @@
 
 ## React Hooks   
 &emsp;React Hooks are a powerful way to manage state and lifecycle methods in React.
++ [Introduction](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks)
 + State Hook
     - how to use & initialize
     - how to update state
