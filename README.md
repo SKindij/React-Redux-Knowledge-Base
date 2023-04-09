@@ -14,10 +14,10 @@
 + [Component Lifecycle](https://github.com/SKindij/Getting-Started-React.js/tree/main/Component-Lifecycle)
     - how to use methods to control component behavior
     - common use cases for each method
-+ Handling Events
++ [Handling Events](https://github.com/SKindij/Getting-Started-React.js/tree/main/Handling-Events)
     - how to handle user events in components
     - examples of common event handlers
-+ Conditional Rendering
++ [Conditional Rendering](https://github.com/SKindij/Getting-Started-React.js/tree/main/Conditional-Rendering)
     - how to conditionally render components
     - Ternary operator and logical operators
     - Rendering lists and mapping data to components
