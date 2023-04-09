@@ -31,9 +31,47 @@ function App() {
 }
 ```
 
+&emsp; Example - component to detect if prepayment on an order is greater than 70% of total value so that factory can start manufacturing
+```javascript
+import React from 'react';
 
+function PaymentStatus(props) {
+  const { isPaymentComplete, prepaymentAmount, totalAmount } = props;
+  const prepaymentPercentage = (prepaymentAmount / totalAmount) * 100;
+  
+  return (
+    <div>
+      {isPaymentComplete ? (
+        <h1>Your payment has been received. Thank you!</h1>
+      ) : prepaymentPercentage >= 70 ? (
+        <h1>Your prepayment is greater than 70%. Manufacturing will begin soon.</h1>
+      ) : (
+        <h1>Please complete your payment to begin production.</h1>
+      )}
+    </div>
+  );
+}
+// main component
+function App() {
+  const paymentStatus = {
+    isPaymentComplete: false,
+    prepaymentAmount: 750,
+    totalAmount: 1000,
+  };
 
+  return (
+    <div>
+      <h1>Production Payment</h1>
+      <PaymentStatus
+        isPaymentComplete={paymentStatus.isPaymentComplete}
+        prepaymentAmount={paymentStatus.prepaymentAmount}
+        totalAmount={paymentStatus.totalAmount}
+      />
+    </div>
+  );
+}
 
-
+export default App;
+```
 
 
