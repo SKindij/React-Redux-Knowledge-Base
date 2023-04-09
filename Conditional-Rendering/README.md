@@ -74,4 +74,70 @@ function App() {
 export default App;
 ```
 
+&emsp; Here's an example of how you could **render a list** of customers who confirmed the drawings for their requests and **map the data** to individual Customer components:
 
+> **Customer.js** component:
+```javascript
+import React from 'react';
+
+function Customer(props) {
+  const { name, dateConfirmed } = props;
+  return (
+    <div>
+      <h2>{name}</h2>
+      <p>Confirmed on: {dateConfirmed}</p>
+    </div>
+  );
+}
+
+export default Customer;
+```
+
+> **CustomerList.js** component:
+```javascript
+import React from 'react';
+import Customer from './Customer';
+
+function CustomerList(props) {
+  const customers = props.customers;
+  const customerItems = customers.map((customer) =>
+    <li key={customer.id}>
+      <Customer name={customer.name} dateConfirmed={customer.dateConfirmed} />
+    </li>
+  );
+  
+  return (
+    <div>
+      <h1>Confirmed Customers</h1>
+      <ul>{customerItems}</ul>
+    </div>
+  );
+}
+
+export default CustomerList;
+```
+
+
+> **App.js** component:
+```javascript
+import React from 'react';
+import CustomerList from './CustomerList';
+
+function App() {
+  const confirmedCustomers = [
+    { id: 1, name: 'John Doe', dateConfirmed: '2022-03-01' },
+    { id: 2, name: 'Jane Smith', dateConfirmed: '2022-03-02' },
+    { id: 3, name: 'Bob Johnson', dateConfirmed: '2022-03-03' },
+  ];
+
+  return (
+    <div>
+      <CustomerList customers={confirmedCustomers} />
+    </div>
+  );
+}
+
+export default App;
+```
+
+> > _When the App component is rendered, it will render the CustomerList component, which in turn will render a list of Customer components, each displaying the customer's name and the date they confirmed the drawings for their request._
