@@ -33,20 +33,19 @@
 
 ## React Hooks   
 &emsp;React Hooks are a powerful way to manage state and lifecycle methods in React.
-+ [Introduction](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks)
-+ State Hook
++ [Introduction](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#introduction)
++ [State Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#state-hook)
     - how to use & initialize
     - how to update state
     - use multiple state variables
-+ Effect Hook
-    - componentDidMount, componentDidUpdate, and componentWillUnmount
++ [Effect Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#effect-hook)
     - use Hook to fetch data
     - use Hook to handle side effects
-+ useContext Hook
++ [useContext Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#use-context)
     - Context API
     - Context object
     - how to avoid prop drilling
-+ useReducer Hook
++ [useReducer Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#use-reducer)
     - difference between State and useReducer Hook
     - use Hook to manage complex state
     - use Hook with useContext
