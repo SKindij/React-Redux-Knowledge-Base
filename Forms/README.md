@@ -33,13 +33,13 @@ class MyForm extends React.Component {
       });
       return;
     }
-    // checking that age field is a number
-    if (isNaN(age)) {
-      this.setState({
-        errorMessage: 'Age must be a number',
-      });
-      return;
-    }
+    // checking age of user
+    if (age < 18) {
+    this.setState({
+      errorMessage: 'You must be at least 18 years old to submit this form',
+    });
+    return;
+  }
     // Submit the form data to the server or update the app state here
     console.log('Form data:', this.state);
   };
@@ -78,6 +78,12 @@ class MyForm extends React.Component {
 ```
 > _If the input data is valid, the function submits the form data to the server or updates the app state as needed._
 
-
+&emsp;Most common values for the type attribute and what they mean:
++ text: accepts any text.
++ email: accepts only valid email addresses.
++ password: masks entered text, commonly used for passwords.
++ number: accepts only numerical values.
++ checkbox: allows user to select or deselect an option.
++ radio: allows user to select only one option from a group of options.
 
 
