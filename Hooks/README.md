@@ -1,4 +1,4 @@
-### Introduction to React Hooks: {#introduction}
+### <a name="introduction"></a>Introduction to React Hooks:
 &emsp;They are functions that allow developers to use state and other React features in functional components. 
 They were introduced in React 16.8 as a new way to write React components and manage state and lifecycle methods without using class components.
 
@@ -14,7 +14,7 @@ making it easier to reason about and maintain code.
 
 _ _ _
 
-## State Hook {#state-hook}
+## <a name="state-hook"></a>State Hook
 &emsp; It allows you to add state to a functional component. It enables you to manage and update the state of your component without having to write a class.
 
 > _Let's say we're building a dashboard for a repair center that services microcircuits and electric motors. We want to track the number of items that come in for diagnostics and repair, and whether the repairs are covered by warranty or not._
@@ -52,7 +52,7 @@ _ _ _
 > >  }
 > > ```
 
-## Effect Hook allows you {#effect-hook}
+## <a name="effect-hook"></a>Effect Hook allows you
 + to handle side effects - any actions that your component performs outside of its scope, such as fetching data, updating the document title, or setting a timer.
 + to run code after every render, and specify which state variables or props it should depend on. This ensures that the effect is only re-run when its dependencies have changed, and avoids unnecessary computations.
 
@@ -85,8 +85,8 @@ _ _ _
 &emsp; The Effect Hook in React can be used to replace the functionality of componentDidMount, componentDidUpdate, and componentWillUnmount lifecycle methods.
 
 
-### useContext Hook {#use-context}
+### <a name="use-context"></a>useContext Hook
 
 
 
-### useReducer Hook {#use-reducer}
+### <a name="use-reducer"></a>useReducer Hook
