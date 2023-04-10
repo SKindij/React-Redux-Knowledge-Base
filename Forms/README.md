@@ -86,4 +86,4 @@ class MyForm extends React.Component {
 + checkbox: allows user to select or deselect an option.
 + radio: allows user to select only one option from a group of options.
 
-
+&emsp;While the type attribute on input fields can help ensure that users enter the correct type of data, it's still a good idea to perform additional user input validation on the server-side as well as the client-side.
