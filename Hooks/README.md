@@ -54,11 +54,32 @@ _ _ _
 > >  }
 > > ```
 
+## Effect Hook allows you
++ to handle side effects - any actions that your component performs outside of its scope, such as fetching data, updating the document title, or setting a timer.
++ to run code after every render, and specify which state variables or props it should depend on. This ensures that the effect is only re-run when its dependencies have changed, and avoids unnecessary computations.
 
-
-
-
-
-
-
-
+> _Here's an example of how you can use the Effect Hook to fetch data from an API:_
+> > ```
+> >  import React, { useState, useEffect } from 'react';
+> >  
+> >  function UserList() {
+> >    const [users, setUsers] = useState([]);
+> >    // empty array as 2nd argument means that effect should only run once, when component mounts
+> >    useEffect(() => {
+> >      fetch('https://jsonplaceholder.typicode.com/users')
+> >        .then(response => response.json())
+> >        .then(data => setUsers(data));
+> >    }, []);
+> >  
+> >    return (
+> >      <div>
+> >        <h2>User List</h2>
+> >        <ul>
+> >          {users.map(user => (
+> >            <li key={user.id}>{user.name}</li>
+> >          ))}
+> >        </ul>
+> >      </div>
+> >    );
+> >  }
+> > ```
