@@ -21,11 +21,11 @@
     - how to conditionally render components
     - Ternary operator and logical operators
     - Rendering lists and mapping data to components
-+ Forms in React
++ [Forms in React](https://github.com/SKindij/Getting-Started-React.js/tree/main/Forms)
     - how to handle form submission
     - how to manage form input fields with state
     - validating form input data
-+ Styling in React
++ [Styling in React](https://github.com/SKindij/Getting-Started-React.js/tree/main/Styling-in-React)
     - different ways to style components
     - CSS-in-JS libraries like Styled Components
     - best practices for styling components
