@@ -27,7 +27,25 @@ allow you to import CSS files directly into your component and use them as local
 > }
 > ```
 
-
-
-
+### Styled Components: 
+it is a library that allows you to write CSS in your JavaScript code using a special syntax.\
+This creates components that are styled using CSS-in-JS.
+> ```javascript
+> import styled from 'styled-components';
+> 
+> const Button = styled.button`
+>   background-color: ${props => props.primary ? 'blue' : 'white'};
+>   color: ${props => props.primary ? 'white' : 'black'};
+>   font-size: 1em;
+>   margin: 1em; padding: 0.25em 1em;
+>   border: 2px solid blue; border-radius: 3px;
+> `;
+> 
+> function MyComponent() {
+>   return (
+>     <Button primary>Hello, world!</Button>
+>   );
+> }
+> 
+> ```
 
