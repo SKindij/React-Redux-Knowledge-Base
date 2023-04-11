@@ -115,6 +115,24 @@ export default MyComponent;
 
 ### <a name="use-context"></a>useContext Hook
 
+&emsp;Context in React allows you to share data between components without passing it down through props explicitly. It's a way to manage global state in your application that can be accessed by multiple components at different levels of the component tree.
+
+&emsp;**Context API** consists of two main parts: 
+* the **Context object**
+  + it is created using the `React.createContext()` function
+  + it returns an object with 
+    - `Provider` component (_used to wrap parent component(s) that want to share data_), 
+    - `Consumer` component (_used to access the shared data in child component(s)_);
+* the **useContext Hook**
+  + it is built-in hook provided by React,
+  + allows to access value from nearest Provider of specific context in your component without using Consumer component;
+
+> &emsp;**Prop drilling** is pattern where you pass down props through multiple levels of components, even if some intermediate components don't actually use those props, just to pass them down to deeply nested component that needs them.\
+&emsp;It can lead to complex and hard-to-maintain code.
+
+
+
+
 
 
 ### <a name="use-reducer"></a>useReducer Hook
