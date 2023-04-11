@@ -113,7 +113,7 @@ export default MyComponent;
 
 
 
-### <a name="use-context"></a>useContext Hook
+## <a name="use-context"></a>useContext Hook
 
 &emsp;Context in React allows you to share data between components without passing it down through props explicitly. It's a way to manage global state in your application that can be accessed by multiple components at different levels of the component tree.
 
@@ -130,9 +130,9 @@ export default MyComponent;
 > &emsp;**Prop drilling** is pattern where you pass down props through multiple levels of components, even if some intermediate components don't actually use those props, just to pass them down to deeply nested component that needs them.\
 &emsp;It can lead to complex and hard-to-maintain code.
 
+&emsp;**Context in React** can help you avoid prop drilling by allowing you to share data directly between components that need it, without passing it down through intermediate components. 
 
 
 
 
-
-### <a name="use-reducer"></a>useReducer Hook
+## <a name="use-reducer"></a>useReducer Hook
