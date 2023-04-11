@@ -136,3 +136,93 @@ export default MyComponent;
 
 
 ## <a name="use-reducer"></a>useReducer Hook
+
+&emsp;This Hook is a way to manage complex state in your application. It's similar to the useState Hook, but it provides a more powerful way to update and manage state in your application. The useReducer Hook takes two arguments: 
+  * **reducer function**
+    + it responsible for handling state changes in your application;
+    + takes two arguments: the current state and an action object;
+    + returns new state based on the current state and the action;
+  * **initial state value**.
+
+> &emsp;Let's say we have a warehouse that stores products from different suppliers and we need to manage the inventory of those products. Each product has a unique id, a name, a description, and a quantity in stock. We need to keep track of the current inventory and update it as products are received or sold.
+> > ```javascript
+> >  import React, { useReducer } from 'react';
+> >  
+> >  function inventoryReducer(state, action) {
+> >    switch (action.type) {
+> >      case 'RECEIVE_PRODUCTS':
+> >        return {
+> >          ...state,
+> >          products: state.products.concat(action.payload),
+> >        };
+> >      case 'SELL_PRODUCT':
+> >        const productId = action.payload.id;
+> >        const productIndex = state.products.findIndex(p => p.id === productId);
+> >        const newProducts = [...state.products];
+> >        if (productIndex !== -1 && newProducts[productIndex].quantity > 0) {
+> >          newProducts[productIndex].quantity -= 1;
+> >        }
+> >        return {
+> >          ...state,
+> >          products: newProducts
+> >        };
+> >      default:
+> >        return state;
+> >    }
+> >  }
+> >  
+> >  function InventoryManager() {
+> >    const [state, dispatch] = useReducer(inventoryReducer, {
+> >      products: [
+> >        { id: 1, name: 'Product A', description: 'Description A', quantity: 10 },
+> >        { id: 2, name: 'Product B', description: 'Description B', quantity: 5 },
+> >        { id: 3, name: 'Product C', description: 'Description C', quantity: 3 }
+> >      ]
+> >    });
+> >  
+> >    function receiveProducts(products) {
+> >      dispatch({
+> >        type: 'RECEIVE_PRODUCTS',
+> >        payload: products
+> >      });
+> >    }
+> >  
+> >    function sellProduct(productId) {
+> >      dispatch({
+> >        type: 'SELL_PRODUCT',
+> >        payload: { id: productId }
+> >      });
+> >    }
+> >  
+> >    return (
+> >      <div>
+> >        <h2>Inventory Manager</h2>
+> >        <ul>
+> >          {state.products.map(product => (
+> >            <li key={product.id}>
+> >              {product.name} ({product.quantity} in stock)
+> >              <button disabled={product.quantity === 0} onClick={() => sellProduct(product.id)}>Sell</button>
+> >            </li>
+> >          ))}
+> >        </ul>
+> >        <button onClick={ () => receiveProducts([
+> >          { id: 4, name: 'Product D', description: 'Description D', quantity: 2 },
+> >          { id: 5, name: 'Product E', description: 'Description E', quantity: 7 }
+> >        ]) }>Receive Products</button>
+> >      </div>
+> >    );
+> >  }
+> >  
+> >  export default InventoryManager;
+> > ```
+
+
+
+
+
+
+
+
+
+
+
