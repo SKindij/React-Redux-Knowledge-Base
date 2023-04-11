@@ -53,8 +53,36 @@ _ _ _
 > > ```
 
 ## <a name="effect-hook"></a>Effect Hook allows you
-+ to handle side effects - any actions that your component performs outside of its scope, such as fetching data, updating the document title, or setting a timer.
++ to handle side effects - any actions that your component performs outside of its scope, such as fetching data, updating the document title and DOM, subscribing to events, or setting a timer;
 + to run code after every render, and specify which state variables or props it should depend on. This ensures that the effect is only re-run when its dependencies have changed, and avoids unnecessary computations.
+
+&emsp; The Effect Hook in React can be used to replace the functionality of componentDidMount, componentDidUpdate, and componentWillUnmount lifecycle methods.
+
+> Here's the basic syntax for using the `useEffect` hook:
+```javascript
+import React, { useEffect } from 'react';
+
+function MyComponent() {
+  // hook takes two arguments:
+  useEffect( () => { // arg1 - function containing side effect code    
+       // this code will run after component has rendered
+
+     // Cleanup function (optional)
+     return () => {
+        // Cleanup code here
+        // This code will run when the component unmounts or when the effect dependencies change
+      };
+  }, [] ); // arg2 - array of dependencies that effect depends on
+// if empty ([]) -- effect only runs once, similar to componentDidMount
+// if array of dependencies -- effect will run similar to componentDidUpdate 
+
+  return (
+    // JSX for the component's UI here
+  );
+}
+
+export default MyComponent;
+```
 
 > _Here's an example of how you can use the Effect Hook to fetch data from an API:_
 > > ```javascript
@@ -82,7 +110,7 @@ _ _ _
 > >  }
 > > ```
 
-&emsp; The Effect Hook in React can be used to replace the functionality of componentDidMount, componentDidUpdate, and componentWillUnmount lifecycle methods.
+
 
 
 ### <a name="use-context"></a>useContext Hook
