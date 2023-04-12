@@ -160,10 +160,13 @@ export default MyComponent;
 > >        };
 > >      // returns new state object with updated products array
 > >      case 'SELL_PRODUCT':
+> >        // extracts id property from payload of action object
 > >        const productId = action.payload.id;
-> >        const productIndex = state.products.findIndex(p => p.id === productId);
+> >   // finds index of product in products array of current state that matches productId obtained from action 
+> >        const productIndex = state.products.findIndex(p => p.id === productId);     
 > >        if (productIndex !== -1 && state.products[productIndex].quantity > 0) {
 > >          return {
+> >    // new state object with same props as current state (...state), but with updated products array
 > >            ...state,
 > >            products: state.products.map(product => {
 > >              if (product.id === productId) {
