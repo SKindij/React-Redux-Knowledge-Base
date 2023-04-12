@@ -162,14 +162,21 @@ export default MyComponent;
 > >      case 'SELL_PRODUCT':
 > >        const productId = action.payload.id;
 > >        const productIndex = state.products.findIndex(p => p.id === productId);
-> >        const newProducts = [...state.products];
-> >        if (productIndex !== -1 && newProducts[productIndex].quantity > 0) {
-> >          newProducts[productIndex].quantity -= 1;
+> >        if (productIndex !== -1 && state.products[productIndex].quantity > 0) {
+> >          return {
+> >            ...state,
+> >            products: state.products.map(product => {
+> >              if (product.id === productId) {
+> >                return {
+> >                  ...product,
+> >                  quantity: product.quantity - 1
+> >                };
+> >              }
+> >              return product;
+> >            })
+> >          };
 > >        }
-> >        return {
-> >          ...state,
-> >          products: newProducts
-> >        };
+> >        return state;
 > >      default:
 > >        return state;
 > >    }
