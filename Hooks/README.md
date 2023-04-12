@@ -146,15 +146,19 @@ export default MyComponent;
 
 > &emsp;Let's say we have a warehouse that stores products from different suppliers and we need to manage the inventory of those products. Each product has a unique id, a name, a description, and a quantity in stock. We need to keep track of the current inventory and update it as products are received or sold.
 > > ```javascript
+> >  // importing React & useReducer hook for managing state in our component
 > >  import React, { useReducer } from 'react';
-> >  
+> >  // func that determines how state should be updated based on action type
 > >  function inventoryReducer(state, action) {
+> >    // to handle different action types
 > >    switch (action.type) {
+> >      // concatenate action.payload (array of products) to existing state.products array (...state)
 > >      case 'RECEIVE_PRODUCTS':
 > >        return {
 > >          ...state,
 > >          products: state.products.concat(action.payload),
 > >        };
+> >      // returns new state object with updated products array
 > >      case 'SELL_PRODUCT':
 > >        const productId = action.payload.id;
 > >        const productIndex = state.products.findIndex(p => p.id === productId);
@@ -170,23 +174,24 @@ export default MyComponent;
 > >        return state;
 > >    }
 > >  }
-> >  
+> >  // functional component that uses useReducer hook to manage its state
 > >  function InventoryManager() {
+> >    // initialize the state
 > >    const [state, dispatch] = useReducer(inventoryReducer, {
+> >      // initial state object, which contains an array of products
 > >      products: [
 > >        { id: 1, name: 'Product A', description: 'Description A', quantity: 10 },
 > >        { id: 2, name: 'Product B', description: 'Description B', quantity: 5 },
 > >        { id: 3, name: 'Product C', description: 'Description C', quantity: 3 }
 > >      ]
 > >    });
-> >  
+> >    // helper functions - dispatch actions to inventoryReducer to update state
 > >    function receiveProducts(products) {
 > >      dispatch({
 > >        type: 'RECEIVE_PRODUCTS',
 > >        payload: products
 > >      });
 > >    }
-> >  
 > >    function sellProduct(productId) {
 > >      dispatch({
 > >        type: 'SELL_PRODUCT',
