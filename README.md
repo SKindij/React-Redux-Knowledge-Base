@@ -49,7 +49,7 @@
     - difference between State and useReducer Hook
     - use Hook to manage complex state
     - use Hook with useContext
-+ [Custom Hooks](https://github.com/SKindij/Getting-Started-React.js/tree/main/#custom-hooks)
++ [Custom Hooks](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#custom-hooks)
     - how to create them
     - extract common logic into Hook
     - best practices
@@ -58,7 +58,7 @@
 ## React Router
 &emsp;If you plan to create multi-page applications, you'll need to learn about React Router.\
 This library allows you to manage your application's routes and navigation. 
-+ Setting up Routes
++ [Setting up Routes](https://github.com/SKindij/Getting-Started-React.js/tree/main/React-Router#setting-routes)
     - set up
     - create components
     - Switch component
