@@ -26,19 +26,30 @@ _ _ _
 > >    const [diagnostics, setDiagnostics] = useState(0);
 > >    const [warrantyRepairs, setWarrantyRepairs] = useState(0);
 > >    const [nonWarrantyRepairs, setNonWarrantyRepairs] = useState(0);
+> >    const [rejectedRepairs, setRejectedRepairs] = useState(0);
 > >  
 > >    function handleDiagnosticsIncrement() {
 > >      setDiagnostics(diagnostics + 1);
 > >    }
 > >  
 > >    function handleWarrantyRepairsIncrement() {
-> >      setWarrantyRepairs(warrantyRepairs + 1);
+> >        if (warrantyRepairs + nonWarrantyRepairs + rejectedRepairs < diagnostics) {
+> >          setWarrantyRepairs(warrantyRepairs + 1);
+> >        }
 > >    }
 > >  
 > >    function handleNonWarrantyRepairsIncrement() {
+> >        if (warrantyRepairs + nonWarrantyRepairs + rejectedRepairs < diagnostics) {
 > >      setNonWarrantyRepairs(nonWarrantyRepairs + 1);
+> >        }
 > >    }
 > >  
+> >   function handleRejectedRepairsIncrement() {
+> >       if (warrantyRepairs + nonWarrantyRepairs + rejectedRepairs < diagnostics) {
+> >         setRejectedRepairs(rejectedRepairs + 1);
+> >       }
+> >     }
+> >   
 > >    return (
 > >      <div>
 > >        <h2>Repair Dashboard</h2>
@@ -48,6 +59,8 @@ _ _ _
 > >        <button onClick={handleWarrantyRepairsIncrement}>Accept for warranty repair</button>
 > >        <p>Number of non-warranty repairs: {nonWarrantyRepairs}</p>
 > >        <button onClick={handleNonWarrantyRepairsIncrement}>Accept for non-warranty repair</button>
+> >        <p>Number of rejected repairs: {rejectedRepairs}</p>
+> >        <button onClick={handleRejectedRepairsIncrement}>Reject repair</button>
 > >      </div>
 > >    );
 > >  }
