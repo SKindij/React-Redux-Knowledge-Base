@@ -90,8 +90,13 @@ Here are a few best practices for working with the useState hook:
 
 
 ## <a name="effect-hook"></a>Effect Hook allows you
-+ to handle side effects - any actions that your component performs outside of its scope, such as fetching data, updating the document title and DOM, subscribing to events, or setting a timer;
-+ to run code after every render, and specify which state variables or props it should depend on. This ensures that the effect is only re-run when its dependencies have changed, and avoids unnecessary computations.
++ to handle side effects 
+  - any actions that your component performs outside of its scope, 
+  - such as fetching data, updating document title and DOM, subscribing to events, or setting timer;
++ to run code after every render
+  - specify which state variables or props it should depend on;
+  - this ensures that effect is only re-run when its dependencies have changed;
+  - this avoids unnecessary computations.
 
 &emsp; The Effect Hook in React can be used to replace the functionality of componentDidMount, componentDidUpdate, and componentWillUnmount lifecycle methods.
 
@@ -101,15 +106,17 @@ import React, { useEffect } from 'react';
 
 function MyComponent() {
   // hook takes two arguments:
-  useEffect( () => { // arg1 - function containing side effect code    
+  useEffect( () => { 
+      // arg1 - callback function containing side effect code    
        // this code will run after component has rendered
 
-     // Cleanup function (optional)
+     // cleanup function (such as removing event listeners or canceling timers)
      return () => {
-        // Cleanup code here
-        // This code will run when the component unmounts or when the effect dependencies change
+        // cleanup code here
+        // this code will run when component unmounts or when effect dependencies change
       };
-  }, [] ); // arg2 - array of dependencies that effect depends on
+    // arg2 - array of dependencies (state or props) that effect depends on  
+  }, [dependency1, dependency2] ); 
 // if empty ([]) -- effect only runs once, similar to componentDidMount
 // if array of dependencies -- effect will run similar to componentDidUpdate 
 
@@ -128,11 +135,11 @@ export default MyComponent;
 > >  function UserList() {
 > >    const [users, setUsers] = useState([]);
 > >    // empty array as 2nd argument means that effect should only run once, when component mounts
-> >    useEffect(() => {
+> >    useEffect( () => {
 > >      fetch('https://jsonplaceholder.typicode.com/users')
-> >        .then(response => response.json())
-> >        .then(data => setUsers(data));
-> >    }, []);
+> >        .then( response => response.json() )
+> >        .then( data => setUsers(data) );
+> >    }, [] );
 > >  
 > >    return (
 > >      <div>
