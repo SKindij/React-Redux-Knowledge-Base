@@ -156,13 +156,14 @@ export default MyComponent;
 > >    return (
 > >      <div>
 > >        <h2>User List</h2>
-> >        {isLoading ? ( <p>Loading...</p> ) : 
-> >        (
-> >        <ul>
-> >          { users.map( user => (
-> >             <li key={user.id}>{user.name}</li>
-> >          ) ) }
-> >        </ul>
+> >        { isLoading ? ( <p>Loading...</p> ) 
+> >          : (
+> >            <ul>
+> >              { users.map( user => (
+> >                <li key={user.id}>{user.name}</li> )
+> >               ) }
+> >            </ul> )
+> >        }  
 > >      </div>
 > >    );
 > >  }
