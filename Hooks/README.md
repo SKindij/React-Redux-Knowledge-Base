@@ -134,20 +134,34 @@ export default MyComponent;
 > >  
 > >  function UserList() {
 > >    const [users, setUsers] = useState([]);
-> >    // empty array as 2nd argument means that effect should only run once, when component mounts
+> >    // good practice to display loading state to provide feedback to user
+> >    const [isLoading, setIsLoading] = useState(true);
+> >    
 > >    useEffect( () => {
 > >      fetch('https://jsonplaceholder.typicode.com/users')
 > >        .then( response => response.json() )
-> >        .then( data => setUsers(data) );
+> >        .then( data => {
+> >          setUsers(data);
+> >          setIsLoading(false);
+> >        } )
+> >        .catch( error => {
+> >          // good practice to handle errors when making API requests
+> >          console.error('Error fetching user data:', error);
+> >          setIsLoading(false);
+> >        } );
+> >    // [] means that effect should only run once, when component mounts  
 > >    }, [] );
-> >  
+> >    
+> >    // In your current code, you don't have any cleanup needed for the effect.
 > >    return (
 > >      <div>
 > >        <h2>User List</h2>
+> >        {isLoading ? ( <p>Loading...</p> ) : 
+> >        (
 > >        <ul>
-> >          {users.map(user => (
-> >            <li key={user.id}>{user.name}</li>
-> >          ))}
+> >          { users.map( user => (
+> >             <li key={user.id}>{user.name}</li>
+> >          ) ) }
 > >        </ul>
 > >      </div>
 > >    );
