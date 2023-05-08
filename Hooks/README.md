@@ -16,7 +16,24 @@ _ _ _
 
 
 ## <a name="state-hook"></a>State Hook
-&emsp; It allows you to add state to a functional component. It enables you to manage and update the state of your component without having to write a class.
+&emsp; It allows to add state to functional component. It enables you to manage and update state of your component without having to write class.
+With this hook, you can declare state variable and update its value over time, triggering re-render of your component.
+* to use the useState hook, you first need to import it from the react library:
+  + ```javascript
+      import React, { useState } from 'react';
+    ```
+* next, you can declare your state variable and its initial value:
+  + ```javascript
+      const [stateVariable, setStateVariable] = useState(initialValue);
+      // 'stateVariable' is the name of your state variable
+      // 'setStateVariable' is function that update value of 'stateVariable'
+      // (initialValue) is initial value of 'stateVariable'
+    ```
+* once you have declared state variable, you can use it in your component like any other variable
+  + ```javascript
+      setStateVariable(newValue);
+      // React will re-render component with updated value of 'stateVariable'
+    ```
 
 > _Let's say we're building a dashboard for a repair center that services microcircuits and electric motors. We want to track the number of items that come in for diagnostics and repair, and whether the repairs are covered by warranty or not._
 > > ```javascript
@@ -65,6 +82,11 @@ _ _ _
 > >    );
 > >  }
 > > ```
+
+Here are a few best practices for working with the useState hook:
+* _Use a descriptive name for your state variable. This will make your code more readable and easier to understand._
+* _Always use the setStateVariable function to update your state variable. Directly modifying the state variable could cause unexpected behavior in your component._
+* _If your state variable is an object or an array, make sure to update it immutably. This means creating a new object or array with the updated value, rather than modifying the existing object or array._
 
 
 ## <a name="effect-hook"></a>Effect Hook allows you
