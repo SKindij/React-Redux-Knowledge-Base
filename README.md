@@ -49,6 +49,10 @@
     - difference between State and useReducer Hook
     - use Hook to manage complex state
     - use Hook with useContext
++ [Additional Hooks](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#additional)
+    - useCallback
+    - useMemo
+    - useRef
 + [Custom Hooks](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#custom-hooks)
     - how to create them
     - extract common logic into Hook
