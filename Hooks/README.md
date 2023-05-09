@@ -46,24 +46,24 @@ With this hook, you can declare state variable and update its value over time, t
 > >    const [rejectedRepairs, setRejectedRepairs] = useState(0);
 > >  
 > >    function handleDiagnosticsIncrement() {
-> >      setDiagnostics(diagnostics + 1);
+> >      setDiagnostics(diagnostics => diagnostics + 1);
 > >    }
 > >  
 > >    function handleWarrantyRepairsIncrement() {
 > >        if (warrantyRepairs + nonWarrantyRepairs + rejectedRepairs < diagnostics) {
-> >          setWarrantyRepairs(warrantyRepairs + 1);
+> >          setWarrantyRepairs(warrantyRepairs => warrantyRepairs + 1);
 > >        }
 > >    }
 > >  
 > >    function handleNonWarrantyRepairsIncrement() {
 > >        if (warrantyRepairs + nonWarrantyRepairs + rejectedRepairs < diagnostics) {
-> >      setNonWarrantyRepairs(nonWarrantyRepairs + 1);
+> >      setNonWarrantyRepairs(nonWarrantyRepairs => nonWarrantyRepairs + 1);
 > >        }
 > >    }
 > >  
 > >   function handleRejectedRepairsIncrement() {
 > >       if (warrantyRepairs + nonWarrantyRepairs + rejectedRepairs < diagnostics) {
-> >         setRejectedRepairs(rejectedRepairs + 1);
+> >         setRejectedRepairs(rejectedRepairs => rejectedRepairs + 1);
 > >       }
 > >     }
 > >   
