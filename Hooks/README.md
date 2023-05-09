@@ -35,7 +35,8 @@ With this hook, you can declare state variable and update its value over time, t
       // React will re-render component with updated value of 'stateVariable'
     ```
 
-> _Let's say we're building a dashboard for a repair center that services microcircuits and electric motors. We want to track the number of items that come in for diagnostics and repair, and whether the repairs are covered by warranty or not._
+> _Let's say we're building `repair center app` that services microcircuits and electric motors._\
+> _Let's create `dashboard component` to track number of items that come in for diagnostics and repair, and whether the repairs are covered by warranty or not._
 > > ```javascript
 > >  import React, { useState } from 'react';
 > >  
@@ -76,8 +77,8 @@ With this hook, you can declare state variable and update its value over time, t
 > >        <button onClick={handleWarrantyRepairsIncrement}>Accept for warranty repair</button>
 > >        <p>Number of non-warranty repairs: {nonWarrantyRepairs}</p>
 > >        <button onClick={handleNonWarrantyRepairsIncrement}>Accept for non-warranty repair</button>
-> >        <p>Number of rejected repairs: {rejectedRepairs}</p>
-> >        <button onClick={handleRejectedRepairsIncrement}>Reject repair</button>
+> >        <p>Rejected requests: {rejectedRepairs}</p>
+> >        <button onClick={handleRejectedRepairsIncrement}>Reject request</button>
 > >      </div>
 > >    );
 > >  }
@@ -128,12 +129,12 @@ function MyComponent() {
 export default MyComponent;
 ```
 
-> _Here's an example of how you can use the Effect Hook to fetch data from an API:_
+> _Let's continue working on our application. One idea could be component that displays list of all technicians currently working at repair center, including their names, job titles, and contact information._
 > > ```javascript
 > >  import React, { useState, useEffect } from 'react';
 > >  
-> >  function UserList() {
-> >    const [users, setUsers] = useState([]);
+> >  function TechniciansList() {
+> >    const [technicians, setTechnicians] = useState([]);
 > >    // good practice to display loading state to provide feedback to user
 > >    const [isLoading, setIsLoading] = useState(true);
 > >    
@@ -141,7 +142,7 @@ export default MyComponent;
 > >      fetch('https://jsonplaceholder.typicode.com/users')
 > >        .then( response => response.json() )
 > >        .then( data => {
-> >          setUsers(data);
+> >          setTechnicians(data);
 > >          setIsLoading(false);
 > >        } )
 > >        .catch( error => {
@@ -154,17 +155,34 @@ export default MyComponent;
 > >    
 > >    // In your current code, you don't have any cleanup needed for the effect.
 > >    return (
-> >      <div>
-> >        <h2>User List</h2>
-> >        { isLoading ? ( <p>Loading...</p> ) 
-> >          : (
-> >            <ul>
-> >              { users.map( user => (
-> >                <li key={user.id}>{user.name}</li> )
-> >               ) }
-> >            </ul> )
-> >        }  
-> >      </div>
+> >       <div>
+> >          <h2>Repair Center Technicians</h2>
+> >          { isLoading ? (
+> >              <p>Loading...</p>
+> >            ) : (
+> >              <table className="table table-striped">
+> >                <thead>
+> >                  <tr>
+> >                    <th>Name</th>
+> >                    <th>Job Title</th>
+> >                    <th>Email</th>
+> >                    <th>Phone</th>
+> >                  </tr>
+> >                </thead>
+> >                <tbody>
+> >                  { technicians.map( technician => (
+> >                    <tr key={technician.id}>
+> >                      <td>{technician.name}</td>
+> >                      <td>{technician.company.bs}</td>
+> >                      <td>{technician.email}</td>
+> >                      <td>{technician.phone}</td>
+> >                    </tr>
+> >                  ))}
+> >                </tbody>
+> >              </table>
+> >            )
+> >          }
+> >        </div>
 > >    );
 > >  }
 > > ```
