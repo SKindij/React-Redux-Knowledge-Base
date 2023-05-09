@@ -89,6 +89,7 @@ Here are a few best practices for working with the useState hook:
 * _Always use the setStateVariable function to update your state variable. Directly modifying the state variable could cause unexpected behavior in your component._
 * _If your state variable is an object or an array, make sure to update it immutably. This means creating a new object or array with the updated value, rather than modifying the existing object or array._
 
+- - -
 
 ## <a name="effect-hook"></a>Effect Hook allows you
 + to handle side effects 
@@ -187,9 +188,9 @@ export default MyComponent;
 > >  }
 > > ```
 
+- - -
 
 ## <a name="use-context"></a>useContext Hook
-
 &emsp;Context in React allows you to share data between components without passing it down through props explicitly. It's a way to manage global state in your application that can be accessed by multiple components at different levels of the component tree.
 
 &emsp;**Context API** consists of two main parts: 
@@ -206,7 +207,13 @@ export default MyComponent;
 &emsp;It can lead to complex and hard-to-maintain code.
 
 &emsp;**Context in React** can help you avoid prop drilling by allowing you to share data directly between components that need it, without passing it down through intermediate components. 
+This is useful in cases where multiple components need access to the same data or state, but they are not directly related in the component tree.
 
+> _For example, in a large application, there may be multiple components that need access to the current user's authentication status or user preferences. Rather than passing this data down through each intermediate component, developers can use the useContext Hook to create a shared context object that can be accessed by any component in the tree._
+
+The useContext Hook is also commonly used in combination with the useReducer Hook, which allows for more complex state management and can further reduce the need for prop drilling.
+
+- - -
 
 ## <a name="use-reducer"></a>useReducer Hook
 
