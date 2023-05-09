@@ -313,6 +313,26 @@ The useContext Hook is also commonly used in combination with the useReducer Hoo
 
 - - -
 
+## <a name="additional"></a>Additional Hooks 
+
+### useCallback
+
+
+
+
+### useMemo
+
+
+
+
+
+### useRef
+
+
+
+
+- - -
+
 ## <a name="custom-hooks"></a>Custom Hooks 
 
 Here are the steps to create a custom hook:
