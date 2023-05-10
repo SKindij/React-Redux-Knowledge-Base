@@ -12,8 +12,12 @@ making it easier to reason about and maintain code.
 + Improved performance: 
   - Hooks can improve performance by reducing the amount of re-renders and optimizing the way state is managed.
 
-_ _ _
+<p align="center">
+  <img src="https://github.com/SKindij/SKindij/blob/main/recources/react-hook-lifecycle.jpg" 
+    title="react-hook-lifecycle" alt="react-hook-lifecycle" width="640" />  
+</p>
 
+_ _ _
 
 ## <a name="state-hook"></a>State Hook
 &emsp; It allows to add state to functional component. It enables you to manage and update state of your component without having to write class.
