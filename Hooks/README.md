@@ -304,6 +304,65 @@ The useReducer Hook takes two arguments:
     + returns new state based on the current state and the action;
   * **initial state value**.
 
+&emsp; It is often used when you have state that transitions through different possible values or when the next state depends on the previous state.
+
+To create a component using the useReducer hook, you generally follow these steps:
+1. **Import the necessary dependencies:**
+```javascript
+  import React, { useReducer } from 'react';
+```
+2. **Define your reducer function:**
+    - it is responsible for updating state based on dispatched actions;
+    - it takes current state and action as input and returns new state;
+```javascript
+  // reducer function follows specific pattern:
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case 'ACTION_TYPE_1':
+        // update state based on action type 1
+        return newState1;
+      case 'ACTION_TYPE_2':
+        // update state based on action type 2
+        return newState2;
+      // add more cases for different action types
+      default:
+        return state; // return current state if no action type matches
+    }
+  };
+```
+3. **Define the initial state:**
+    - it represents initial value of your state;
+    - i can be object, array, or any other type of data;
+```javascript
+  const initialState = {
+    // define initial state properties
+};
+
+```
+4. **Use the useReducer hook in your component:**
+    - state: represents current state managed by reducer;
+    - dispatch: function used to dispatch actions to update state;
+```javascript
+  const [state, dispatch] = useReducer(reducer, initialState);
+```
+5. **Dispatch actions to update the state:**
+    - type: represents type of action to be performed;
+    - payload: optional data associated with action;
+```javascript
+  // dispatching action triggers reducer function, which updates state based on action type
+  dispatch({ type: 'ACTION_TYPE', payload: 'additionalData' });
+```
+6. **Use the state values in your component:**
+> _You can access the state values returned by the reducer and use them in your component to render UI or perform any other logic._
+
+
+
+
+
+
+
+
+
 
 
 - - -
