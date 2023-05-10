@@ -209,19 +209,22 @@ export default MyComponent;
 &emsp;**Context in React** can help you avoid prop drilling by allowing you to share data directly between components that need it, without passing it down through intermediate components. 
 This is useful in cases where multiple components need access to the same data or state, but they are not directly related in the component tree.
 
-> _For example, in a large application, there may be multiple components that need access to the current user's authentication status or user preferences. Rather than passing this data down through each intermediate component, developers can use the useContext Hook to create a shared context object that can be accessed by any component in the tree._
+> _For example, in a large application, there may be multiple components that need access to the current user's authentication status or user preferences. Rather than passing this data down through each intermediate component, developers can use the useContext Hook to create a shared context object that can be accessed by any component in the tree.\
 > &emsp; _You can include multiple arrays or any other data structures in a single `RepairServiceContext` if they are related to the overall state of your application. The RepairServiceContext can hold any data that you want to share and make accessible to other components._
 > > ```javascript
 > >  import React, { createContext, useContext } from 'react';
-> >  
-> >  const RepairServiceContext = createContext({
+> >  // use 'createContext' func from React
+> >    // argument is an initial context value
+> >  const RepairServiceContext = createContext( {
+> >    // both properties are initially set to empty arrays
 > >    repairServices: [],
 > >    accessoriesOnSale: [],
-> >  });
-> >  
-> >  export const useRepairServiceContext = () => useContext(RepairServiceContext);
-> >  
-> >  const RepairServiceContextProvider = ({ children }) => {
+> >  } );
+> >  // custom hook which uses useContext to access value provided by RepairServiceContext
+> >  export const useRepairServiceContext = () => useContext( RepairServiceContext );
+> >  // define component, which serves as provider for RepairServiceContext
+> >  // it receives {children} which represents nested components that will consume context
+> >  const RepairServiceContextProvider = ( { children } ) => {
 > >    const repairServices = [
 > >      { id: 1, type: 'Control unit repair', price: 100, available: true },
 > >      { id: 2, type: 'Electric motor repair', price: 150, available: false },
@@ -239,9 +242,9 @@ This is useful in cases where multiple components need access to the same data o
 > >      { id: 105, type: 'antenna', price: 11, balanceInStock: 0, available: false },
 > >      { id: 106, type: 'gear rack', price: 3, balanceInStock: 610, available: true },
 > >    ];
-> >  
+> >    // wrap {children} inside .Provider component, passing value prop
 > >    return (
-> >      <RepairServiceContext.Provider value={{ repairServices, accessoriesOnSale }}>
+> >      <RepairServiceContext.Provider value={ { repairServices, accessoriesOnSale } }>
 > >        {children}
 > >      </RepairServiceContext.Provider>
 > >    );
