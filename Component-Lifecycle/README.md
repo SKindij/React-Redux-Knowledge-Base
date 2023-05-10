@@ -23,6 +23,11 @@
         - is called just before the component is removed from the screen;
         - is commonly used for cleaning up resources, such as removing event listeners or cancelling pending API requests.
 
+<div>
+  <img src="https://github.com/SKindij/SKindij/blob/main/recources/react-lifecycle-methods.jpg" 
+    title="react-lifecycle-method" alt="react-lifecycle-method" width="640" height="240"/>  
+</div> 
+
 _ _ _
 
 #### An example of using these methods to fetch data from an external API and update the component's state with that data.
