@@ -253,9 +253,42 @@ This is useful in cases where multiple components need access to the same data o
 > >  export default RepairServiceContextProvider;
 > > ```
 
-
-
-
+> _Now, you can access both arrays in any component that consumes the `RepairServiceContext` by using the `useRepairServiceContext` custom hook:_
+> > ```javascript
+> >  import React from 'react';
+> >  import { useRepairServiceContext } from './RepairServiceContext';
+> >  
+> >  const RepairServiceList = () => {
+> >    const { repairServices, accessoriesOnSale } = useRepairServiceContext();
+> >  
+> >    return (
+> >      <div className="container">
+> >        <h2 className="mt-4 mb-3">Repair Services</h2>
+> >        <ul className="list-group">
+> >          {repairServices.map((repairService) => (
+> >            <li className="list-group-item" key={repairService.id}>
+> >              <span className="fw-bold">{repairService.type}</span>
+> >              <span className="badge bg-primary ms-2">${repairService.price}</span>
+> >            </li>
+> >          ))}
+> >        </ul>
+> >  
+> >        <h2 className="mt-4 mb-3">Accessories on Sale</h2>
+> >        <ul className="list-group">
+> >          {accessoriesOnSale.map((accessory) => (
+> >            <li className="list-group-item" key={accessory.id}>
+> >              <span className="fw-bold">{accessory.type}</span>
+> >              <span className="badge bg-success ms-2">${accessory.price}</span>
+> >            <span className="badge bg-info ms-2">In Stock: {accessory.balanceInStock}</span>
+> >            </li>
+> >          ))}
+> >        </ul>
+> >      </div>
+> >    );
+> >  };
+> >  
+> >  export default RepairServiceList;
+> > ```
 
 The useContext Hook is also commonly used in combination with the useReducer Hook, which allows for more complex state management and can further reduce the need for prop drilling.
 
