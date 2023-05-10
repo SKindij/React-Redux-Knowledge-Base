@@ -1,123 +1,107 @@
 # REACT knowledge base
 
-
-## React Fundamentals
-+ [Сomponents](https://github.com/SKindij/Getting-Started-React.js/tree/main/Components)
+## 📚 React Fundamentals
++ 📖 [Сomponents](https://github.com/SKindij/Getting-Started-React.js/tree/main/Components)
     - JSX syntax
     - class component
     - functional component
     - simple component
-+ [Props](https://github.com/SKindij/Getting-Started-React.js/tree/main/Props-and-State)
++ 📖 [Props](https://github.com/SKindij/Getting-Started-React.js/tree/main/Props-and-State)
     - how to pass data from parent to child components
-+ [State](https://github.com/SKindij/Getting-Started-React.js/tree/main/Props-and-State)
++ 📖 [State](https://github.com/SKindij/Getting-Started-React.js/tree/main/Props-and-State)
     - how to manage state within a component
-+ [Component Lifecycle](https://github.com/SKindij/Getting-Started-React.js/tree/main/Component-Lifecycle)
++ 📖 [Component Lifecycle](https://github.com/SKindij/Getting-Started-React.js/tree/main/Component-Lifecycle)
     - how to use methods to control component behavior
     - common use cases for each method
-+ [Handling Events](https://github.com/SKindij/Getting-Started-React.js/tree/main/Handling-Events)
++ 📖 [Handling Events](https://github.com/SKindij/Getting-Started-React.js/tree/main/Handling-Events)
     - how to handle user events in components
     - examples of common event handlers
-+ [Conditional Rendering](https://github.com/SKindij/Getting-Started-React.js/tree/main/Conditional-Rendering)
++ 📖 [Conditional Rendering](https://github.com/SKindij/Getting-Started-React.js/tree/main/Conditional-Rendering)
     - how to conditionally render components
     - Ternary operator and logical operators
     - Rendering lists and mapping data to components
-+ [Forms in React](https://github.com/SKindij/Getting-Started-React.js/tree/main/Forms)
++ 📖 [Forms in React](https://github.com/SKindij/Getting-Started-React.js/tree/main/Forms)
     - how to handle form submission
     - how to manage form input fields with state
     - validating form input data
-+ [Styling in React](https://github.com/SKindij/Getting-Started-React.js/tree/main/Styling-in-React)
++ 📖 [Styling in React](https://github.com/SKindij/Getting-Started-React.js/tree/main/Styling-in-React)
     - different ways to style components
     - CSS-in-JS libraries like Styled Components
     - best practices for styling components
 
 
-## React Hooks   
+## 📚 React Hooks   
 &emsp;React Hooks are a powerful way to manage state and lifecycle methods in React.
-+ [Introduction](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#introduction)
-+ [State Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#state-hook)
++ 📖 [Introduction](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#introduction)
++ 📖 [State Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#state-hook)
     - how to use & initialize
     - how to update state
     - use multiple state variables
-+ [Effect Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#effect-hook)
++ 📖 [Effect Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#effect-hook)
     - use Hook to fetch data
     - use Hook to handle side effects
-+ [useContext Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#use-context)
++ 📖 [useContext Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#use-context)
     - Context API
     - Context object
     - how to avoid prop drilling
-+ [useReducer Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#use-reducer)
++ 📖 [useReducer Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#use-reducer)
     - difference between State and useReducer Hook
     - use Hook to manage complex state
     - use Hook with useContext
-+ [Additional Hooks](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#additional)
++ 📖 [Additional Hooks](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#additional)
     - useCallback
     - useMemo
     - useRef
-+ [Custom Hooks](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#custom-hooks)
++ 📖 [Custom Hooks](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#custom-hooks)
     - how to create them
     - extract common logic into Hook
     - best practices
 
 
-## React Router
+## 📚 React Router
 &emsp;If you plan to create multi-page applications, you'll need to learn about React Router.\
 This library allows you to manage your application's routes and navigation. 
-+ [Setting up Routes](https://github.com/SKindij/Getting-Started-React.js/tree/main/React-Router#setting-routes)
++ 📖 [Setting up Routes](https://github.com/SKindij/Getting-Started-React.js/tree/main/React-Router#setting-routes)
     - set up
     - create components
     - Switch component
     - Redirect component
-+ Route Parameters
++ 📖 Route Parameters
     - useParams hook
     - useLocation hook
-+ Nested Routes
++ 📖 Nested Routes
     - useRouteMatch hook
-+ Programmatic Navigation
++ 📖 Programmatic Navigation
     - useHistory hook
     - useLocation hook
-+ Route Guards
++ 📖 Route Guards
     - prevent navigation
     - Prompt component
-+ Advanced Topics
++ 📖 Advanced Topics
     - Server-side Rendering
     - code-splitting
     - lazy-loading
     - animation
 
 
-## Redux
+## 📚 Redux
 &emsp;Redux is a popular state management library used in many React applications.\
 It can be a bit complex to learn, but it's a powerful tool once you understand it. 
-+ Store
-+ Actions
-+ Reducers
-+ Store Subscriptions
-+ React-Redux
++ 📖 Store
++ 📖 Actions
++ 📖 Reducers
++ 📖 Store Subscriptions
++ 📖 React-Redux
     - Provider component
     - connect function
-+ Middleware
-+ DevTools
-+ Advanced Topics
++ 📖 Middleware
++ 📖 DevTools
++ 📖 Advanced Topics
     - selectors
     - immutability
     - testing
 
-
-
-
-
-
-
-
-
-
-
-
 ___
-
-
-
-
 
 
 
