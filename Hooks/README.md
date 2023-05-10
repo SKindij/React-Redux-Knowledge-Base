@@ -210,6 +210,49 @@ export default MyComponent;
 This is useful in cases where multiple components need access to the same data or state, but they are not directly related in the component tree.
 
 > _For example, in a large application, there may be multiple components that need access to the current user's authentication status or user preferences. Rather than passing this data down through each intermediate component, developers can use the useContext Hook to create a shared context object that can be accessed by any component in the tree._
+> &emsp; _You can include multiple arrays or any other data structures in a single `RepairServiceContext` if they are related to the overall state of your application. The RepairServiceContext can hold any data that you want to share and make accessible to other components._
+> > ```javascript
+> >  import React, { createContext, useContext } from 'react';
+> >  
+> >  const RepairServiceContext = createContext({
+> >    repairServices: [],
+> >    accessoriesOnSale: [],
+> >  });
+> >  
+> >  export const useRepairServiceContext = () => useContext(RepairServiceContext);
+> >  
+> >  const RepairServiceContextProvider = ({ children }) => {
+> >    const repairServices = [
+> >      { id: 1, type: 'Control unit repair', price: 100, available: true },
+> >      { id: 2, type: 'Electric motor repair', price: 150, available: false },
+> >      { id: 3, type: 'Garage gate repair', price: 200, available: true },
+> >      { id: 4, type: 'Swing gate repair', price: 175, available: true },
+> >      { id: 5, type: 'Roll-up gate repair', price: 125, available: false },
+> >      { id: 6, type: 'Barrier repair', price: 75, available: true },
+> >    ];
+> >  
+> >    const accessoriesOnSale = [
+> >      { id: 101, type: 'radio receiver', price: 16, balanceInStock: 340, available: true },
+> >      { id: 102, type: 'remote control', price: 6, balanceInStock: 980, available: true },
+> >      { id: 103, type: 'photocells', price: 14, balanceInStock: 420, available: true },
+> >      { id: 104, type: 'lamp', price: 10, balanceInStock: 430, available: true },
+> >      { id: 105, type: 'antenna', price: 11, balanceInStock: 0, available: false },
+> >      { id: 106, type: 'gear rack', price: 3, balanceInStock: 610, available: true },
+> >    ];
+> >  
+> >    return (
+> >      <RepairServiceContext.Provider value={{ repairServices, accessoriesOnSale }}>
+> >        {children}
+> >      </RepairServiceContext.Provider>
+> >    );
+> >  };
+> >  
+> >  export default RepairServiceContextProvider;
+> > ```
+
+
+
+
 
 The useContext Hook is also commonly used in combination with the useReducer Hook, which allows for more complex state management and can further reduce the need for prop drilling.
 
@@ -217,99 +260,15 @@ The useContext Hook is also commonly used in combination with the useReducer Hoo
 
 ## <a name="use-reducer"></a>useReducer Hook
 
-&emsp;This Hook is a way to manage complex state in your application. It's similar to the useState Hook, but it provides a more powerful way to update and manage state in your application. The useReducer Hook takes two arguments: 
+&emsp;This Hook is a way to manage complex state in your application. It's similar to the useState Hook, but it provides a more powerful way to update and manage state in your application. 
+The useReducer Hook takes two arguments: 
   * **reducer function**
     + it responsible for handling state changes in your application;
     + takes two arguments: the current state and an action object;
     + returns new state based on the current state and the action;
   * **initial state value**.
 
-> &emsp;Let's say we have a warehouse that stores products from different suppliers and we need to manage the inventory of those products. Each product has a unique id, a name, a description, and a quantity in stock. We need to keep track of the current inventory and update it as products are received or sold.
-> > ```javascript
-> >  // importing React & useReducer hook for managing state in our component
-> >  import React, { useReducer } from 'react';
-> >  // func that determines how state should be updated based on action type
-> >  function inventoryReducer(state, action) {
-> >    // to handle different action types
-> >    switch (action.type) {
-> >      // concatenate action.payload (array of products) to existing state.products array (...state)
-> >      case 'RECEIVE_PRODUCTS':
-> >        return {
-> >          ...state,
-> >          products: state.products.concat(action.payload),
-> >        };
-> >      // returns new state object with updated products array
-> >      case 'SELL_PRODUCT':
-> >        // extracts id property from payload of action object
-> >        const productId = action.payload.id;
-> >   // finds index of product in products array of current state that matches productId obtained from action 
-> >        const productIndex = state.products.findIndex(p => p.id === productId);     
-> >        if (productIndex !== -1 && state.products[productIndex].quantity > 0) {
-> >          return {
-> >    // new state object with same props as current state (...state), but with updated products array
-> >            ...state,
-> >            products: state.products.map(product => {
-> >              if (product.id === productId) {
-> >                return {
-> >                  ...product,
-> >                  quantity: product.quantity - 1
-> >                };
-> >              }
-> >              return product;
-> >            })
-> >          };
-> >        }
-> >        return state;
-> >      default:
-> >        return state;
-> >    }
-> >  }
-> >  // functional component that uses useReducer hook to manage its state
-> >  function InventoryManager() {
-> >    // initialize the state
-> >    const [state, dispatch] = useReducer(inventoryReducer, {
-> >      // initial state object, which contains an array of products
-> >      products: [
-> >        { id: 1, name: 'Product A', description: 'Description A', quantity: 10 },
-> >        { id: 2, name: 'Product B', description: 'Description B', quantity: 5 },
-> >        { id: 3, name: 'Product C', description: 'Description C', quantity: 3 }
-> >      ]
-> >    });
-> >    // helper functions - dispatch actions to inventoryReducer to update state
-> >    function receiveProducts(products) {
-> >      dispatch({
-> >        type: 'RECEIVE_PRODUCTS',
-> >        payload: products
-> >      });
-> >    }
-> >    function sellProduct(productId) {
-> >      dispatch({
-> >        type: 'SELL_PRODUCT',
-> >        payload: { id: productId }
-> >      });
-> >    }
-> >  
-> >    return (
-> >      <div>
-> >        <h2>Inventory Manager</h2>
-> >        <ul>
-> >          {state.products.map(product => (
-> >            <li key={product.id}>
-> >              {product.name} ({product.quantity} in stock)
-> >              <button disabled={product.quantity === 0} onClick={() => sellProduct(product.id)}>Sell</button>
-> >            </li>
-> >          ))}
-> >        </ul>
-> >        <button onClick={ () => receiveProducts([
-> >          { id: 4, name: 'Product D', description: 'Description D', quantity: 2 },
-> >          { id: 5, name: 'Product E', description: 'Description E', quantity: 7 }
-> >        ]) }>Receive Products</button>
-> >      </div>
-> >    );
-> >  }
-> >  
-> >  export default InventoryManager;
-> > ```
+
 
 - - -
 
