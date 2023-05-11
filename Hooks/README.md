@@ -404,6 +404,23 @@ _The memoized value can be used within your component, avoiding unnecessary reca
 
 
 ### useRef
+&emsp;This hook is used to create a mutable reference that persists across component renders. 
+It provides a way to access and modify DOM elements or values that persist outside of the normal component lifecycle.
+
+const refContainer = useRef(initialValue);
+* initialValue will be the initial value of the reference;
+* refContainer is object with .current property that holds current value of reference;
+* unlike useState, updating refContainer.current value does not cause re-render of component;
+* you can access current value using refContainer.current;
+
+useRef is commonly used to reference DOM elements, store mutable values, or preserve values between renders without triggering a re-render.
+
+
+
+
+
+
+
 
 
 
