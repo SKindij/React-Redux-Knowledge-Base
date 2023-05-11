@@ -406,22 +406,62 @@ _The memoized value can be used within your component, avoiding unnecessary reca
 ### useRef
 &emsp;This hook is used to create a mutable reference that persists across component renders. 
 It provides a way to access and modify DOM elements or values that persist outside of the normal component lifecycle.
+> ```javascript
+>   const refContainer = useRef(initialValue);
+> ```
+> > * initialValue will be the initial value of the reference;
+> > * refContainer is object with .current property that holds current value of reference;
+> > * unlike useState, updating refContainer.current value does not cause re-render of component;
+> > * you can access current value using refContainer.current;
 
-const refContainer = useRef(initialValue);
-* initialValue will be the initial value of the reference;
-* refContainer is object with .current property that holds current value of reference;
-* unlike useState, updating refContainer.current value does not cause re-render of component;
-* you can access current value using refContainer.current;
+_useRef is commonly used to reference DOM elements, store mutable values, or preserve values between renders without triggering a re-render._
 
-useRef is commonly used to reference DOM elements, store mutable values, or preserve values between renders without triggering a re-render.
+&emsp; Here are a few common use cases for useRef:
+1. **Referencing DOM elements:**
+    - _You can use useRef to get reference to DOM element and interact with it imperatively._
+    - _For example, you can focus an input field or scroll to a specific element._
+    - ```javascript
+        import React, { useRef, useEffect } from 'react';
 
+        function MyComponent() {
+          const inputRef = useRef(null);
+            useEffect(() => {
+              inputRef.current.focus();
+            }, []);
+          return <input ref={inputRef} />;
+        }
+      ```
+2. **Storing previous values:**
+    - _You can use useRef to store previous values of props or state, and compare them during subsequent renders._
+    - ```javascript
+        import React, { useRef, useEffect } from 'react';
 
+        function MyComponent({ value }) {
+          const prevValueRef = useRef();
+            useEffect(() => {
+              if (prevValueRef.current !== value) {
+                // value changed, do something
+              }
+              prevValueRef.current = value;
+            }, [value]);
+                  return <div>{value}</div>;
+        }
+      ```
+3. **Storing mutable values:**
+    - useRef allows you to store values that persist across renders;
+    - similar to instance variables in class components;
+    - ```javascript
+        import React, { useRef, useEffect } from 'react';
 
-
-
-
-
-
+        function MyComponent() {
+          const counterRef = useRef(0);
+            useEffect(() => {
+              counterRef.current += 1;
+              console.log(`Counter: ${counterRef.current}`);
+            });
+          return <div>Counter: {counterRef.current}</div>;
+        }
+      ```
 
 
 
