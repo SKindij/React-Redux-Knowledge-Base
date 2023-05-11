@@ -374,7 +374,16 @@ To create a component using the useReducer hook, you generally follow these step
 ## <a name="additional"></a>Additional Hooks 
 
 ### useCallback
+&emsp;It is used to memoize a function so that it is not recreated on each render unless its dependencies change. It's particularly useful when passing callbacks to child components that rely on reference equality to prevent unnecessary re-renders.
+> ```javascript
+>   const memoizedCallback = useCallback(callback, dependencies);
+> ```
+> > * The first argument, callback, is the function that you want to memoize.
+> > * The second argument, dependencies, is an array of values that the memoized callback depends on. 
+> >   + if any of these values change, the callback will be recreated; otherwise, the memoized version will be returned;
+> >   + tt's important to include all dependencies that are used within the callback to ensure the correct behavior;
 
+_The memoized callback can be passed down as a prop to child components, ensuring that the child components only re-render when necessary._
 
 
 
