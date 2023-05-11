@@ -378,17 +378,27 @@ To create a component using the useReducer hook, you generally follow these step
 > ```javascript
 >   const memoizedCallback = useCallback(callback, dependencies);
 > ```
-> > * The first argument, callback, is the function that you want to memoize.
-> > * The second argument, dependencies, is an array of values that the memoized callback depends on. 
+> > * first argument, callback, is the function that you want to memoize.
+> > * second argument, dependencies, is an array of values that the memoized callback depends on. 
 > >   + if any of these values change, the callback will be recreated; otherwise, the memoized version will be returned;
 > >   + tt's important to include all dependencies that are used within the callback to ensure the correct behavior;
 
-_The memoized callback can be passed down as a prop to child components, ensuring that the child components only re-render when necessary._
+_The memoized callback can be passed down as prop to child components, ensuring that child components only re-render when necessary._
 
 
 
 ### useMemo
+&emsp;It is used to memoize the result of a function call, similar to useCallback, but for values instead of functions. 
+It allows you to optimize expensive calculations or complex operations within your components. 
+> ```javascript
+>   const memoizedValue = useMemo(() => calculateValue(a, b), dependencies);
+> ```
+> > * first argument is a function that returns the value you want to memoize.
+> > * second argument, dependencies, is an array of values that the memoized value depends on. 
+> >   + if any of these values change, memoized value will be recalculated; otherwise, memoized version will be returned;
+> >   + it's crucial to include all dependencies that are used within the function to ensure the correct behavior.
 
+_The memoized value can be used within your component, avoiding unnecessary recalculation if the dependencies haven't changed._
 
 
 
