@@ -33,18 +33,18 @@
 ## 📚 React Hooks   
 &emsp;React Hooks are a powerful way to manage state and lifecycle methods in React.
 + 📖 [Introduction](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#introduction)
-+ 📖 [State Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#state-hook)
++ 📖 [State Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#statehook)
     - how to use & initialize
     - how to update state
     - use multiple state variables
-+ 📖 [Effect Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#effect-hook)
++ 📖 [Effect Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#effecthook)
     - use Hook to fetch data
     - use Hook to handle side effects
-+ 📖 [useContext Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#use-context)
++ 📖 [useContext Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#usecontext)
     - Context API
     - Context object
     - how to avoid prop drilling
-+ 📖 [useReducer Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#use-reducer)
++ 📖 [useReducer Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#usereducer)
     - difference between State and useReducer Hook
     - use Hook to manage complex state
     - use Hook with useContext
@@ -52,7 +52,7 @@
     - useCallback
     - useMemo
     - useRef
-+ 📖 [Custom Hooks](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#custom-hooks)
++ 📖 [Custom Hooks](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#customhooks)
     - how to create them
     - extract common logic into Hook
     - best practices
