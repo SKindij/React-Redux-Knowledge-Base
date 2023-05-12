@@ -19,7 +19,7 @@ making it easier to reason about and maintain code.
 
 _ _ _
 
-## <a name="state-hook"></a>State Hook
+## <a name="statehook"></a>State Hook
 &emsp; It allows to add state to functional component. It enables you to manage and update state of your component without having to write class.
 With this hook, you can declare state variable and update its value over time, triggering re-render of your component.
 * to use the useState hook, you first need to import it from the react library:
@@ -95,7 +95,7 @@ Here are a few best practices for working with the useState hook:
 
 - - -
 
-## <a name="effect-hook"></a>Effect Hook allows you
+## <a name="effecthook"></a>Effect Hook allows you
 + to handle side effects 
   - any actions that your component performs outside of its scope, 
   - such as fetching data, updating document title and DOM, subscribing to events, or setting timer;
@@ -194,7 +194,7 @@ export default MyComponent;
 
 - - -
 
-## <a name="use-context"></a>useContext Hook
+## <a name="usecontext"></a>useContext Hook
 &emsp;Context in React allows you to share data between components without passing it down through props explicitly. It's a way to manage global state in your application that can be accessed by multiple components at different levels of the component tree.
 
 &emsp;**Context API** consists of two main parts: 
@@ -298,7 +298,7 @@ The useContext Hook is also commonly used in combination with the useReducer Hoo
 
 - - -
 
-## <a name="use-reducer"></a>useReducer Hook
+## <a name="usereducer"></a>useReducer Hook
 
 &emsp;This Hook is a way to manage complex state in your application. It's similar to the useState Hook, but it provides a more powerful way to update and manage state in your application. 
 The useReducer Hook takes two arguments: 
@@ -467,7 +467,7 @@ _useRef is commonly used to reference DOM elements, store mutable values, or pre
 
 - - -
 
-## <a name="custom-hooks"></a>Custom Hooks 
+## <a name="customhooks"></a>Custom Hooks 
 
 Here are the steps to create a custom hook:
 + Identify the common logic that needs to be shared across multiple components.
