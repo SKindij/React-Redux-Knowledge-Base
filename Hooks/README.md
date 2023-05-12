@@ -362,8 +362,51 @@ To create a component using the useReducer hook, you generally follow these step
 
 &emsp;📖State Hook and useReducer Hook have some key differences in terms of usage and intended use cases:
 
-
-
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>useState</th>
+      <th>useReducer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simplicity vs. Complexity</td>
+      <td>simpler and more straightforward for managing local component state;<br>
+        suitable for managing simple state values or independent state variables;</td>
+      <td>powerful for managing complex state logic;<br>
+        handle state transitions that depend on previous state, involve multiple properties, or require complex updates;</td>
+    </tr>
+    <tr>
+      <td>API Differences</td>
+      <td>returns: current state value and function to update that value;</td>
+      <td>returns: current state value and dispatch function to trigger state updates through actions;</td>
+    </tr>
+    <tr>
+      <td>Handling Updates</td>
+      <td>primarily used to handle simple state updates where the new state value is directly set or computed based on the previous state;</td>
+      <td>more flexible and allows to define reducer function that determines how state transitions from one value to another;</td>
+    </tr>
+    <tr>
+      <td>State Shape</td>
+      <td>state is typically a single value, such as a boolean, number, string, or object;</td>
+      <td>more complex state structures, as objects, arrays, or any other data structure that suits your needs;</td>
+    </tr>
+    <tr>
+      <td>Use Cases</td>
+      <td>suitable for managing independent state variables, such as toggles, form inputs, or any simple state that doesn't require complex transitions;</td>
+      <td>manage state with complex transitions, state dependencies, or when state logic becomes too cumbersome with useState alone;<br>
+        It is commonly used for state management patterns like Flux or Redux.</td>     
+    </tr>
+    <tr>
+      <td>Predictability and Testing</td>
+      <td>more implicit, especially if there are multiple state variables, which may make it slightly harder to track state changes during testing;</td>
+      <td>state transitions are explicit and predictable because they are determined by reducer function.<br>
+        This can make testing and debugging easier.</td>  
+    </tr>
+  </tbody>
+</table>
 
 
 
