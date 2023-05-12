@@ -2,7 +2,7 @@
 &emsp;They are functions that allow developers to use state and other React features in functional components. 
 They were introduced in React 16.8 as a new way to write React components and manage state and lifecycle methods without using class components.
 
-&emsp;**The benefits of React Hooks include:**
+&emsp;📖 **The benefits of React Hooks include:**
 + Simplified code: 
   - Hooks allow developers to write more concise and readable code, reducing the amount of boilerplate 
 and repetitive code needed to manage state and lifecycle methods.
@@ -19,7 +19,7 @@ making it easier to reason about and maintain code.
 
 _ _ _
 
-## <a name="statehook"></a>State Hook
+## <a name="statehook"></a>📚 State Hook
 &emsp; It allows to add state to functional component. It enables you to manage and update state of your component without having to write class.
 With this hook, you can declare state variable and update its value over time, triggering re-render of your component.
 * to use the useState hook, you first need to import it from the react library:
@@ -95,7 +95,7 @@ Here are a few best practices for working with the useState hook:
 
 - - -
 
-## <a name="effecthook"></a>Effect Hook allows you
+## <a name="effecthook"></a>📚 Effect Hook allows you
 + to handle side effects 
   - any actions that your component performs outside of its scope, 
   - such as fetching data, updating document title and DOM, subscribing to events, or setting timer;
@@ -194,7 +194,7 @@ export default MyComponent;
 
 - - -
 
-## <a name="usecontext"></a>useContext Hook
+## <a name="usecontext"></a>📚 useContext Hook
 &emsp;Context in React allows you to share data between components without passing it down through props explicitly. It's a way to manage global state in your application that can be accessed by multiple components at different levels of the component tree.
 
 &emsp;**Context API** consists of two main parts: 
@@ -298,7 +298,7 @@ The useContext Hook is also commonly used in combination with the useReducer Hoo
 
 - - -
 
-## <a name="usereducer"></a>useReducer Hook
+## <a name="usereducer"></a>📚 useReducer Hook
 
 &emsp;This Hook is a way to manage complex state in your application. It's similar to the useState Hook, but it provides a more powerful way to update and manage state in your application. 
 The useReducer Hook takes two arguments: 
@@ -360,7 +360,7 @@ To create a component using the useReducer hook, you generally follow these step
 > _You can access the state values returned by the reducer and use them in your component to render UI or perform any other logic._
 
 
-
+&emsp;📖State Hook and useReducer Hook have some key differences in terms of usage and intended use cases:
 
 
 
@@ -371,9 +371,9 @@ To create a component using the useReducer hook, you generally follow these step
 
 - - -
 
-## <a name="additional"></a>Additional Hooks 
+## <a name="additional"></a>📚 Additional Hooks 
 
-### useCallback
+### 📖 useCallback
 &emsp;It is used to memoize a function so that it is not recreated on each render unless its dependencies change. It's particularly useful when passing callbacks to child components that rely on reference equality to prevent unnecessary re-renders.
 > ```javascript
 >   const memoizedCallback = useCallback(callback, dependencies);
@@ -387,7 +387,7 @@ _The memoized callback can be passed down as prop to child components, ensuring 
 
 
 
-### useMemo
+### 📖 useMemo
 &emsp;It is used to memoize the result of a function call, similar to useCallback, but for values instead of functions. 
 It allows you to optimize expensive calculations or complex operations within your components. 
 > ```javascript
@@ -403,7 +403,7 @@ _The memoized value can be used within your component, avoiding unnecessary reca
 
 
 
-### useRef
+### 📖 useRef
 &emsp;This hook is used to create a mutable reference that persists across component renders. 
 It provides a way to access and modify DOM elements or values that persist outside of the normal component lifecycle.
 > ```javascript
@@ -467,7 +467,7 @@ _useRef is commonly used to reference DOM elements, store mutable values, or pre
 
 - - -
 
-## <a name="customhooks"></a>Custom Hooks 
+## <a name="customhooks"></a>📚 Custom Hooks 
 
 Here are the steps to create a custom hook:
 + Identify the common logic that needs to be shared across multiple components.
