@@ -45,9 +45,9 @@
     - Context object
     - how to avoid prop drilling
 + 📖 [useReducer Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#usereducer)
+    - useReducer Hook to manage complex state
     - difference between State and useReducer Hook
-    - use Hook to manage complex state
-    - use Hook with useContext
+    - useReducer Hook with useContext
 + 📖 [Additional Hooks](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#additional)
     - useCallback
     - useMemo
