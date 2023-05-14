@@ -136,10 +136,12 @@ export default MyComponent;
 
 > _Let's continue working on our application. One idea could be component that displays list of all technicians currently working at repair center, including their names, job titles, and contact information._
 > > ```javascript
-> >  import React, { useState, useEffect } from 'react';
+> >  import React, { useState, useEffect, useCallback } from 'react';
+> >  import TechnicianFilter from './TechnicianFilter';
 > >  
 > >  function TechniciansList() {
 > >    const [technicians, setTechnicians] = useState([]);
+> >    const [filteredTechnicians, setFilteredTechnicians] = useState([]);
 > >    // good practice to display loading state to provide feedback to user
 > >    const [isLoading, setIsLoading] = useState(true);
 > >    
@@ -158,36 +160,48 @@ export default MyComponent;
 > >    // [] means that effect should only run once, when component mounts  
 > >    }, [] );
 > >    
-> >    // In your current code, you don't have any cleanup needed for the effect.
-> >    return (
-> >       <div>
-> >          <h2>Repair Center Technicians</h2>
-> >          { isLoading ? (
-> >              <p>Loading...</p>
-> >            ) : (
-> >              <table className="table table-striped">
-> >                <thead>
-> >                  <tr>
-> >                    <th>Name</th>
-> >                    <th>Job Title</th>
-> >                    <th>Email</th>
-> >                    <th>Phone</th>
+> >    const handleFilterChange = useCallback(searchTerm => {
+> >      if (searchTerm.trim() === '') {
+> >        setFilteredTechnicians(technicians);
+> >      } else {
+> >        const filtered = technicians.filter(technician =>
+> >          technician.name.toLowerCase().includes(searchTerm.toLowerCase())
+> >        );
+> >        setFilteredTechnicians(filtered);
+> >      }
+> >    }, [technicians]);
+> >    
+> >   // In your current code, you don't have any cleanup needed for the effect.
+> >   return (
+> >     <div>
+> >        <h2>Repair Center Technicians</h2>
+> >        <TechnicianFilter technicians={technicians} onFilter={handleFilterChange} />  
+> >        { isLoading ? (
+> >            <p>Loading...</p>
+> >          ) : (
+> >            <table className="table table-striped">
+> >              <thead>
+> >                <tr>
+> >                  <th>Name</th>
+> >                  <th>Job Title</th>
+> >                  <th>Email</th>
+> >                  <th>Phone</th>
+> >                </tr>
+> >              </thead>
+> >              <tbody>
+> >                { filteredTechnicians.map( technician => (
+> >                  <tr key={technician.id}>
+> >                    <td>{technician.name}</td>
+> >                    <td>{technician.company.bs}</td>
+> >                    <td>{technician.email}</td>
+> >                    <td>{technician.phone}</td>
 > >                  </tr>
-> >                </thead>
-> >                <tbody>
-> >                  { technicians.map( technician => (
-> >                    <tr key={technician.id}>
-> >                      <td>{technician.name}</td>
-> >                      <td>{technician.company.bs}</td>
-> >                      <td>{technician.email}</td>
-> >                      <td>{technician.phone}</td>
-> >                    </tr>
-> >                  ))}
-> >                </tbody>
-> >              </table>
-> >            )
-> >          }
-> >        </div>
+> >                ))}
+> >              </tbody>
+> >            </table>
+> >          )
+> >        }
+> >      </div>
 > >    );
 > >  }
 > > ```
@@ -542,14 +556,6 @@ _The memoized callback can be passed down as prop to child components, ensuring 
 > >          value={searchTerm}
 > >          onChange={handleSearchChange}
 > >        />
-> >        <ul>
-> >          {technicians.filter( (technician) =>
-> >              technician.name.toLowerCase().includes(searchTerm.toLowerCase())
-> >             )
-> >           .map( (technician) => (
-> >            <li key={technician.id}>{technician.name}</li>
-> >          ) )}
-> >        </ul>
 > >      </div>
 > >    );
 > >  };
