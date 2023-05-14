@@ -336,7 +336,7 @@ To create a component using the useReducer hook, you generally follow these step
 ```
 3. **Define the initial state:**
     - it represents initial value of your state;
-    - i can be object, array, or any other type of data;
+    - it can be object, array, or any other type of data;
 ```javascript
   const initialState = {
     // define initial state properties
@@ -408,9 +408,101 @@ To create a component using the useReducer hook, you generally follow these step
   </tbody>
 </table>
 
-
-
-
+> _Let's create component 'RepairOrderForm' that allows users to submit repair orders for devices._
+> > ```javascript
+> >  import React, { useReducer } from 'react';
+> >  
+> >  const initialState = {
+> >    customerName: '',
+> >    deviceName: '',
+> >    issue: '',
+> >    isSubmitted: false,
+> >  };
+> >  
+> >  function reducer(state, action) {
+> >    switch (action.type) {
+> >      case 'UPDATE_CUSTOMER_NAME':
+> >        return { ...state, customerName: action.payload };
+> >      case 'UPDATE_DEVICE_NAME':
+> >        return { ...state, deviceName: action.payload };
+> >      case 'UPDATE_ISSUE':
+> >        return { ...state, issue: action.payload };
+> >      case 'SUBMIT_FORM':
+> >        return { ...state, isSubmitted: true };
+> >      case 'RESET_FORM':
+> >        return initialState;
+> >      default:
+> >        return state;
+> >    }
+> >  }
+> >  
+> >  function RepairOrderForm() {
+> >    const [state, dispatch] = useReducer(reducer, initialState);
+> >  
+> >    const handleSubmit = (e) => {
+> >      e.preventDefault();
+> >      dispatch({ type: 'SUBMIT_FORM' });
+> >      // send form data to server or perform other actions
+> >      // you can access form data using `state.customerName`, `state.deviceName`, and `state.issue`
+> >    };
+> >  
+> >    const handleReset = () => {
+> >      dispatch({ type: 'RESET_FORM' });
+> >    };
+> >  
+> >    return (
+> >      <div className="container">
+> >        <h2 className="mt-4 mb-3">Submit Repair Order</h2>
+> >        {state.isSubmitted ? (
+> >          <div className="alert alert-success" role="alert">
+> >            Repair order submitted successfully!
+> >            <button className="btn btn-primary mt-3" onClick={handleReset}>
+> >              Submit Another Order
+> >            </button>
+> >          </div>
+> >      ) : (
+> >        <form onSubmit={handleSubmit}>
+> >          <div className="mb-3">
+> >            <label htmlFor="customerName" className="form-label">Customer Name</label>
+> >            <input type="text" className="form-control" id="customerName"
+> >              value={state.customerName}
+> >              onChange={(e) => dispatch({
+> >                  type: 'UPDATE_CUSTOMER_NAME',
+> >                  payload: e.target.value,
+> >                })
+> >              }
+> >            required />
+> >          </div>
+> >          <div className="mb-3">
+> >            <label htmlFor="deviceName" className="form-label">Device Name</label>
+> >              <input type="text" className="form-control" id="deviceName"
+> >                value={state.deviceName}
+> >                onChange={(e) => dispatch({
+> >                    type: 'UPDATE_DEVICE_NAME',
+> >                    payload: e.target.value,
+> >                  })
+> >                }
+> >            required />
+> >          </div>
+> >          <div className="mb-3">
+> >              <label htmlFor="issue" className="form-label">Issue</label>
+> >              <textarea className="form-control"mid="issue"
+> >                value={state.issue}
+> >                onChange={(e) =>
+> >                  dispatch({ type: 'UPDATE_ISSUE', payload: e.target.value })
+> >                }
+> >              required></textarea>
+> >          </div>
+> >          <button type="submit" className="btn btn-primary me-3">Submit</button>
+> >          <button type="button" className="btn btn-secondary" onClick={handleReset}>Reset</button>
+> >        </form>
+> >      )}
+> >    </div>
+> >    );
+> >  }
+> >
+> >export default RepairOrderForm;
+> > ```
 
 - - -
 
