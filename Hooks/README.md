@@ -160,15 +160,22 @@ export default MyComponent;
 > >    // [] means that effect should only run once, when component mounts  
 > >    }, [] );
 > >    
+> >    // we define func 'handleFilterChange' using 'useCallback' hook
+> >    // this func takes parameter, which represents search term entered by user
 > >    const handleFilterChange = useCallback(searchTerm => {
+> >     // if searchTerm is empty (after trimming whitespace), it means user cleared search field
 > >      if (searchTerm.trim() === '') {
+> >        // set original technicians array, displaying all technicians
 > >        setFilteredTechnicians(technicians);
 > >      } else {
-> >        const filtered = technicians.filter(technician =>
+> >        // 'filter' method is used to create new array (filtered) 
+> >   	   // containing only technicians whose name matches search term
+> >        const filtered = technicians.filter( technician =>
 > >          technician.name.toLowerCase().includes(searchTerm.toLowerCase())
 > >        );
 > >        setFilteredTechnicians(filtered);
 > >      }
+> >    // ensure that func is memoized and only recreated if technicians array changes
 > >    }, [technicians]);
 > >    
 > >   // In your current code, you don't have any cleanup needed for the effect.
@@ -204,6 +211,8 @@ export default MyComponent;
 > >      </div>
 > >    );
 > >  }
+> >  
+> >  export default TechniciansList;
 > > ```
 
 - - -
