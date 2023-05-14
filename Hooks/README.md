@@ -520,7 +520,39 @@ To create a component using the useReducer hook, you generally follow these step
 
 _The memoized callback can be passed down as prop to child components, ensuring that child components only re-render when necessary._
 
-
+> _Render input field for searching technicians and list of technicians based on current search term._
+> > ```javascript
+> >  import React, { useState, useCallback } from 'react';
+> >  
+> >  // component receives array of technicians as prop and callback onFilter to handle filtering logic
+> >  const TechnicianFilter = ( { technicians, onFilter } ) => {
+> >    const [searchTerm, setSearchTerm] = useState('');
+> >    // This func is memoized to prevent unnecessary re-rendering when onFilter func dependency changes. 
+> >    // It updates searchTerm state and calls onFilter callback func with updated search term.
+> >    const handleSearchChange = useCallback(
+> >      (event) => {
+> >        setSearchTerm(event.target.value);
+> >        onFilter(event.target.value);
+> >      }, [onFilter] );
+> >  
+> >    return (
+> >      <div>
+> >        <h2>Technician Filter</h2>
+> >        <input type="text" placeholder="Search technicians..."
+> >          value={searchTerm}
+> >          onChange={handleSearchChange}
+> >        />
+> >        <ul>
+> >          {technicians.map( (technician) => (
+> >            <li key={technician.id}>{technician.name}</li>
+> >          ) )}
+> >        </ul>
+> >      </div>
+> >    );
+> >  };
+> >  
+> >  export default TechnicianFilter;
+> > ```
 
 ### 📖 useMemo
 &emsp;It is used to memoize the result of a function call, similar to useCallback, but for values instead of functions. 
