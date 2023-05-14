@@ -543,7 +543,10 @@ _The memoized callback can be passed down as prop to child components, ensuring 
 > >          onChange={handleSearchChange}
 > >        />
 > >        <ul>
-> >          {technicians.map( (technician) => (
+> >          {technicians.filter( (technician) =>
+> >              technician.name.toLowerCase().includes(searchTerm.toLowerCase())
+> >             )
+> >           .map( (technician) => (
 > >            <li key={technician.id}>{technician.name}</li>
 > >          ) )}
 > >        </ul>
