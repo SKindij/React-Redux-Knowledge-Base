@@ -656,64 +656,29 @@ _useRef is commonly used to reference DOM elements, store mutable values, or pre
 
 Here are the steps to create a custom hook:
 + Identify the common logic that needs to be shared across multiple components.
-+ Create a function that implements this logic and accepts any necessary parameters.
++ Create function that implements this logic and accepts any necessary parameters.
 + Return any values or state that need to be used by the component.
 
-> Here's an example of a custom hook that fetches data from an API:
+> 
 > > ```javascript
-> >  import { useState, useEffect } from 'react';
 > >  
-> >  function useFetch(url) {
-> >    const [data, setData] = useState(null);
-> >    const [isLoading, setIsLoading] = useState(true);
-> >    const [error, setError] = useState(null);
-> >  
-> >    useEffect(() => {
-> >      async function fetchData() {
-> >        try {
-> >          const response = await fetch(url);
-> >          const json = await response.json();
-> >          setData(json);
-> >          setIsLoading(false);
-> >        } catch (error) {
-> >          setError(error);
-> >          setIsLoading(false);
-> >        }
-> >      }
-> >  
-> >      fetchData();
-> >    }, [url]);
-> >  
-> >    return { data, isLoading, error };
-> >  }
 > > ```
-> It returns an object with data, isLoading, and error properties that can be used by the component.
+> 
 
-> To use this hook in a component, simply call it:
+
+
+
+
+> 
 > > ```
-> >  function MyComponent() {
-> >    const { data, isLoading, error } = useFetch('https://api.example.com/data');
 > >  
-> >    if (isLoading) {
-> >      return <div>Loading...</div>;
-> >    }
-> >  
-> >    if (error) {
-> >      return <div>Error: {error.message}</div>;
-> >    }
-> >  
-> >    return (
-> >      <div>
-> >        {data.map((item) => (
-> >          <div key={item.id}>{item.name}</div>
-> >        ))}
-> >      </div>
-> >    );
-> >  }
 > > ```
+
+
+
 
 As for best practices for creating custom hooks, here are a few tips:
-+ Name your hook with the use prefix, as this is a convention in React that makes it clear that it is a hook.
++ Name your hook with `use` prefix, as this is convention in React that makes it clear that it is hook.
 + Make sure your hook has a clear and specific purpose.
 + Keep your hook simple and focused on a single responsibility.
 + Document your hook with JSDoc comments to make it clear what it does and how to use it.
