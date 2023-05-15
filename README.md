@@ -33,25 +33,18 @@
 ## 📚 React Hooks   
 &emsp;React Hooks are a powerful way to manage state and lifecycle methods in React.
 + 📖 [Introduction](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#introduction)
-+ 📖 [State Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#statehook)
-    - how to use & initialize
-    - how to update state
-    - use multiple state variables
-+ 📖 [Effect Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#effecthook)
-    - use Hook to fetch data
-    - use Hook to handle side effects
-+ 📖 [useContext Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#usecontext)
-    - Context API
-    - Context object
-    - how to avoid prop drilling
-+ 📖 [useReducer Hook](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#usereducer)
-    - useReducer Hook to manage complex state
-    - difference between State and useReducer Hook
-    - useReducer Hook with useContext
 + 📖 [Additional Hooks](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#additional)
-    - useCallback
-    - useMemo
-    - useRef
+
+| Hooks                                                                                       | Usage                                           | Features                                                                                                                                                                                                                         |
+|---------------------------------------------------------------------------------------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 📖[useState](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#statehook) | Managing component state                        | - declare and update state variables in functional components;<br>- returns array with current state value and funct to update state;<br>- allows func components to have state similar to class components;                |
+| 📖[useEffect](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#effecthook) | Side effects (e.g., data fetching, subscriptions) | - perform side effects in func components;<br>- runs after every render by default;<br>- takes function as its first argument that can perform cleanup operations;<br>- can specify dependencies to control when it should run; |
+| 📖[useContext](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#usecontext) | Accessing context within components              | - access and consume data from Context provider in func components;<br>- provides way to avoid prop drilling and pass data between components without intermediaries;                                            |
+| 📖[useReducer](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#usereducer) | Managing complex state with actions              | - manage state in more complex and predictable way;<br>- accepts reducer func and initial state, returns current state and dispatch func to update state;<br>- Ideal for state with complex logic.        |
+| 📖[useCallback](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#additional) | Optimizing function references                   | - memoize functions to prevent unnecessary re-renders in child components;<br>- returns memoized version of callback function;<br>- Useful when passing callbacks to child components that rely on reference equality.    |
+| 📖[useMemo](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#additional) | Memoizing expensive computations                  | - memoize result of expensive computation;<br>- returns memoized value that only recalculates when its dependencies change;<br>- can improve performance by avoiding unnecessary calculations;                          |
+| 📖[useRef](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#additional) | Refs and accessing DOM elements                  | - access DOM nodes or store mutable values;<br>- returns mutable ref object that persists across component renders;<br>- allows imperative access to underlying DOM or accessing child component instances;              |
+
 + 📖 [Custom Hooks](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#customhooks)
     - how to create them
     - extract common logic into Hook
