@@ -40,7 +40,59 @@ React Router offers several features and benefits, including:
 
 ### <a name="setting-routes"></a>📖 Setting up Routes
 
-> To install the React Router:
+&emsp; Once installed, you can import necessary components from react-router-dom and define your routes. 
+
+> _Here's an example of setting up routes:_
+> ```javascript
+>  import React from 'react';
+>  import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+>  import Home from './components/Home';
+>  import ResidentialGates from './components/ResidentialGates';
+>  import IndustrialGates from './components/IndustrialGates';
+>  import NotFound from './components/NotFound';
+>  
+>  function App() {
+>    return (
+>      <Router>
+>        <Switch >
+>        {/* ensures that only one route is rendered at a time */}  
+>          <Route exact path="/" component={Home} />
+>          <Route path="/about" component={ResidentialGates} />
+>          <Route path="/about" component={IndustrialGates} />
+>          <Route component={NotFound} />
+>        </Switch>
+>      </Router>
+>    );
+>  }
+>  
+>  export default App;
+> ```
+
+
+The <Route> component has several configuration options. Here are some commonly used ones:
++ **path**: Specifies the URL pattern to match for the route.
++ **component**: Specifies the component to render for the matched route.
++ **exact**: Matches the route exactly (without it, partial matches will also render the component).
++ **render**: Allows rendering an inline function as the component instead of a separate component file.
++ **children**: Similar to render, but always renders, regardless of the URL match.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
