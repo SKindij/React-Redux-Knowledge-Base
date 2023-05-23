@@ -33,7 +33,6 @@
 ## 📚 React Hooks   
 &emsp;React Hooks are a powerful way to manage state and lifecycle methods in React.
 + 📖 [Introduction](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#introduction)
-+ 📖 [Additional Hooks](https://github.com/SKindij/Getting-Started-React.js/tree/main/Hooks#additional)
 
 | Hooks                                                                                       | Usage                                           | Features                                                                                                                                                                                                                         |
 |---------------------------------------------------------------------------------------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -55,7 +54,7 @@
 &emsp;If you plan to create multi-page applications, you'll need to learn about React Router.\
 This library allows you to manage your application's routes and navigation. 
 + 📖 [Setting up Routes](https://github.com/SKindij/Getting-Started-React.js/tree/main/React-Router#setting-routes)
-    - set up
+    - route configuration options
     - create components
     - Switch component
     - Redirect component
@@ -67,7 +66,7 @@ This library allows you to manage your application's routes and navigation.
 + 📖 Programmatic Navigation
     - useHistory hook
     - useLocation hook
-+ 📖 Route Guards
++ 📖 Route Guards and Authentication
     - prevent navigation
     - Prompt component
 + 📖 Advanced Topics
