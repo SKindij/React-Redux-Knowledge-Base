@@ -69,15 +69,28 @@ React Router offers several features and benefits, including:
 > ```
 
 
-The <Route> component has several configuration options. Here are some commonly used ones:
-+ **path**: Specifies the URL pattern to match for the route.
-+ **component**: Specifies the component to render for the matched route.
-+ **exact**: Matches the route exactly (without it, partial matches will also render the component).
-+ **render**: Allows rendering an inline function as the component instead of a separate component file.
-+ **children**: Similar to render, but always renders, regardless of the URL match.
+&emsp; `<Route>` component has several configuration options. Here are some commonly used ones:
++ **path**: _specifies URL pattern to match for route;_
++ **component**: _specifies component to render for matched route;_
++ **exact**: _matches route exactly (without it, partial matches will also render component);_
++ **render**: _allows rendering inline function as component instead of separate component file;_
++ **children**: _similar to render, but always renders, regardless of URL match._
 
+&emsp; `useParams` hook allows you to access the dynamic parameters from the URL. 
 
-
+> _For example, if you have route like /products/:id, you can use useParams to access id parameter:_
+> ```javascript
+>  import React from 'react';
+>  import { useParams } from 'react-router-dom';
+>  
+>  function Product() {
+>    const { productId } = useParams();
+>    // Fetch product details based on productId or perform any other logic
+>    return <div>Product ID: {productId}</div>;
+>  }
+>  
+>  export default Product;
+> ```
 
 
 
