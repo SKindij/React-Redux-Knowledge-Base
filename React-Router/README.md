@@ -24,6 +24,19 @@ React Router offers several features and benefits, including:
  
 &emsp;React Router v6, the latest major version, introduces a more intuitive and simplified API compared to previous versions. It provides improved nesting, route matching, and streamlined navigation methods.
 
+> To install the React Router:\
+> ```bash
+>  npm install react-router-dom \
+>    localforage \
+>    match-sorter \
+>    sort-by
+> ```
+> >  - _package, which provides the necessary components and functionality for routing_
+> >  - _JavaScript library that simplifies usage of web browser's IndexedDB API for storing data;_
+> >  - _It provides simple API for storing and retrieving data in a key-value format._
+> >  - _utility for sorting and filtering arrays or collections based on given search query_
+> >  - _package for sorting array of objects based on given property or properties;_
+
 
 ### <a name="setting-routes"></a>📖 Setting up Routes
 
