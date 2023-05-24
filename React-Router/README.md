@@ -42,32 +42,44 @@ React Router offers several features and benefits, including:
 
 &emsp; Once installed, you can import necessary components from react-router-dom and define your routes. 
 
+> _Let's say we have **pages** folder with attached files. It contains **index.js** file, through which we can organize general export of our pages._
+> > ```javascript
+> >  import MainPage from "./MainPage";
+> >  import ResidentialGates from "./ResidentialGates";
+> >  import IndustrialGates from "./IndustrialGates";
+> >  import Page404 from './404';
+> > 
+> > export {MainPage, ResidentialGates, IndustrialGates, Page404};
+> > ```
 > _Here's an example of setting up routes:_
-> ```javascript
->  import React from 'react';
->  import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
->  import Home from './components/Home';
->  import ResidentialGates from './components/ResidentialGates';
->  import IndustrialGates from './components/IndustrialGates';
->  import NotFound from './components/NotFound';
->  
->  function App() {
->    return (
->      <Router>
->        <Switch >
->        {/* ensures that only one route is rendered at a time */}  
->          <Route exact path="/" component={Home} />
->          <Route path="/about" component={ResidentialGates} />
->          <Route path="/about" component={IndustrialGates} />
->          <Route component={NotFound} />
->        </Switch>
->      </Router>
->    );
->  }
->  
->  export default App;
-> ```
-
+> > ```javascript
+> >  import React from 'react';
+> >  import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+> >  
+> >  import AppHeader from "../appHeader/AppHeader";
+> >  import { MainPage, ResidentialGates, IndustrialGates, Page404 } from '../pages';
+> >    
+> >  function App() {
+> >    return (
+> >      <Router>
+> >        <div className="app">
+> >          <AppHeader />
+> >          <main>
+> >            <Switch >
+> >            {/* ensures that only one route is rendered at a time */}  
+> >              <Route exact path="/" component={MainPage} />
+> >              <Route path="/residential" component={ResidentialGates} />
+> >              <Route path="/industrial" component={IndustrialGates} />
+> >              <Route path="*" component={Page404} />
+> >            </Switch>
+> >          </main>
+> >        </div>
+> >      </Router>
+> >    );
+> >  }
+> >  
+> >  export default App;
+> > ```
 
 &emsp; `<Route>` component has several configuration options. Here are some commonly used ones:
 + **path**: _specifies URL pattern to match for route;_
@@ -78,23 +90,26 @@ React Router offers several features and benefits, including:
 
 &emsp; `useParams` hook allows you to access the dynamic parameters from the URL. 
 
-> _For example, if you have route like /products/:id, you can use useParams to access id parameter:_
-> ```javascript
->  import React from 'react';
->  import { useParams } from 'react-router-dom';
->  
->  function Product() {
->    const { productId } = useParams();
->    // Fetch product details based on productId or perform any other logic
->    return <div>Product ID: {productId}</div>;
->  }
->  
->  export default Product;
-> ```
-
-
-
-
+> _For example, if you have route like `/products/:id`, you can use useParams to access id parameter:_
+> > ```javascript
+> >  // Product component retrieves productId parameter from URL using useParams hook
+> >  import React from 'react';
+> >  import { useParams } from 'react-router-dom';
+> >  
+> >  function Product() {
+> >    const { productId } = useParams();
+> >    // Fetch product details based on productId or perform any other logic
+> >    return <div>Product ID: {productId}</div>;
+> >  }
+> >  
+> >  export default Product;
+> > ```
+> _To set up the route for products, you can add a new <Route> component in your route configuration:_
+> > ```javascript
+> >  <Route path="/products/:productId" component={ Product } />
+> >  // when you access URL like /products/123, Product component will be rendered, and 
+> >  // productId parameter will be available for use through useParams hook
+> > ```
 
 
 
