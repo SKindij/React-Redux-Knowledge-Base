@@ -1,6 +1,6 @@
-## 📚 React Router
+# 📚 React Router
 
-### <a name="introduction"></a>📖 Introduction to React Router
+## <a name="introduction"></a>📖 Introduction to React Router
 
 &emsp;In a single-page application (SPA), all the necessary HTML, CSS, and JavaScript are loaded initially, and subsequent interactions with the application are handled dynamically without requiring full page reloads.\
 &emsp;Routing is essential in SPAs to handle different views or pages within the application without actually navigating to a new HTML page.
@@ -38,7 +38,7 @@ React Router offers several features and benefits, including:
 > >  - _package for sorting array of objects based on given property or properties;_
 
 
-### <a name="setting-routes"></a>📖 Setting up Routes
+## <a name="setting-routes"></a>📖 Setting up Routes
 
 &emsp; Once installed, you can import necessary components from react-router-dom and define your routes. 
 
@@ -47,9 +47,11 @@ React Router offers several features and benefits, including:
 > >  import MainPage from "./MainPage";
 > >  import ResidentialGates from "./ResidentialGates";
 > >  import IndustrialGates from "./IndustrialGates";
+> >  import GarageRollerShutters from "./GarageRollerShutters";
+> >  import WindowRollerShutters from "./WindowRollerShutters";
 > >  import Page404 from './404';
 > > 
-> > export {MainPage, ResidentialGates, IndustrialGates, Page404};
+> > export {MainPage, ResidentialGates, IndustrialGates, GarageRollerShutters, WindowRollerShutters, Page404};
 > > ```
 > _Here's an example of setting up routes:_
 > > ```javascript
@@ -57,7 +59,7 @@ React Router offers several features and benefits, including:
 > >  import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 > >  
 > >  import AppHeader from "../appHeader/AppHeader";
-> >  import { MainPage, ResidentialGates, IndustrialGates, Page404 } from '../pages';
+> >  import { MainPage, ResidentialGates, IndustrialGates, GarageRollerShutters, WindowRollerShutters, Page404 } from '../pages';
 > >    
 > >  function App() {
 > >    return (
@@ -142,16 +144,48 @@ React Router offers several features and benefits, including:
 > >  // productId parameter will be available for use through useParams hook
 > > ```
 
+## <a name="nav-link"></a>📖 Navigation and Linking
 
+&emsp; In React Router, `<Link>` component is used for internal navigation within your application. It provides declarative navigation, allowing you to navigate to different routes without causing a full page reload. On the other hand, `<a>` tag is a standard HTML anchor tag used for external navigation, which can cause a full page reload when clicked.
 
-
-
-
-
-
-
-
-
+> _Here's an example of using `<Link>` in MainPage component with Bootstrap styles_
+> > ```javascript
+> > import React from 'react';
+> > import { Link } from 'react-router-dom';
+> > 
+> > function MainPage() {
+> >   return (
+> >     <div className="container">
+> >       <h2>Main Page</h2>
+> >       <div className="row">
+> >         <div className="col-md-6">
+> >           <div className="card mb-4">
+> >             <img src="residential-gate-image.jpg" className="card-img-top" alt="Residential Gate" />
+> >             <div className="card-body">
+> >               <h5 className="card-title">Residential Gates</h5>
+> >               <p className="card-text">Explore our range of residential gates.</p>
+> >               <Link to="/residential" className="btn btn-primary">View Residential Gates</Link>
+> >             </div>
+> >           </div>
+> >         </div>
+> >         <div className="col-md-6">
+> >           <div className="card mb-4">
+> >             <img src="industrial-gate-image.jpg" className="card-img-top" alt="Industrial Gate" />
+> >             <div className="card-body">
+> >               <h5 className="card-title">Industrial Gates</h5>
+> >               <p className="card-text">Discover our selection of industrial gates.</p>
+> >               <Link to="/industrial" className="btn btn-primary">View Industrial Gates</Link>
+> >             </div>
+> >           </div>
+> >         </div>
+> >         {/* Add more cards for other categories */}
+> >       </div>
+> >     </div>
+> >   );
+> > }
+> > 
+> > export default MainPage;
+> > ```
 
 
 
