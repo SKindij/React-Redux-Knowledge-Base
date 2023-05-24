@@ -72,6 +72,8 @@ React Router offers several features and benefits, including:
 > >              <Route exact path="/" component={MainPage} />
 > >              <Route path="/residential" component={ResidentialGates} />
 > >              <Route path="/industrial" component={IndustrialGates} />
+> >              <Route path="/garageroller" component={GarageRollerShutters} /> 
+> >              <Route path="/windowroller" component={WindowRollerShutters} />  
 > >              <Route path="*" component={Page404} />
 > >            </Switch>
 > >          </main>
@@ -152,6 +154,9 @@ React Router offers several features and benefits, including:
 > > ```javascript
 > > import React from 'react';
 > > import { Link } from 'react-router-dom';
+> >   
+> > import residentialGateImg from '../../resources/residential-gate-image.png';
+> > import industrialGateImg from '../../resources/industrial-gate-image.png';
 > > 
 > > function MainPage() {
 > >   return (
@@ -160,21 +165,21 @@ React Router offers several features and benefits, including:
 > >       <div className="row">
 > >         <div className="col-md-6">
 > >           <div className="card mb-4">
-> >             <img src="residential-gate-image.jpg" className="card-img-top" alt="Residential Gate" />
+> >             <img src={residentialGateImg} className="card-img-top" alt="Residential Garage Gate" />
 > >             <div className="card-body">
 > >               <h5 className="card-title">Residential Gates</h5>
 > >               <p className="card-text">Explore our range of residential gates.</p>
-> >               <Link to="/residential" className="btn btn-primary">View Residential Gates</Link>
+> >               <Link to="/residential" className="btn btn-primary">View Residential Garage Gates</Link>
 > >             </div>
 > >           </div>
 > >         </div>
 > >         <div className="col-md-6">
 > >           <div className="card mb-4">
-> >             <img src="industrial-gate-image.jpg" className="card-img-top" alt="Industrial Gate" />
+> >             <img src={industrialGateImg} className="card-img-top" alt="Industrial Garage Gate" />
 > >             <div className="card-body">
 > >               <h5 className="card-title">Industrial Gates</h5>
 > >               <p className="card-text">Discover our selection of industrial gates.</p>
-> >               <Link to="/industrial" className="btn btn-primary">View Industrial Gates</Link>
+> >               <Link to="/industrial" className="btn btn-primary">View Industrial Garage Gates</Link>
 > >             </div>
 > >           </div>
 > >         </div>
