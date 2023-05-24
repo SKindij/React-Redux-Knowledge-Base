@@ -88,26 +88,57 @@ React Router offers several features and benefits, including:
 + **render**: _allows rendering inline function as component instead of separate component file;_
 + **children**: _similar to render, but always renders, regardless of URL match._
 
-&emsp; `useParams` hook allows you to access the dynamic parameters from the URL. 
+### &emsp; `useParams` hook allows you to access the dynamic parameters from the URL. 
 
-> _For example, if you have route like `/products/:id`, you can use useParams to access id parameter:_
+> _For example, you have a route for displaying product details_\
+> _each product has unique identifier, which is used in URL to identify specific product_
 > > ```javascript
-> >  // Product component retrieves productId parameter from URL using useParams hook
-> >  import React from 'react';
+> >  // you can use useParams hook to retrieve product ID from URL 
+> >  // and fetch corresponding product details from API
+> >  import React, { useEffect, useState } from 'react';
 > >  import { useParams } from 'react-router-dom';
 > >  
-> >  function Product() {
+> >  function ProductDetails() {
 > >    const { productId } = useParams();
-> >    // Fetch product details based on productId or perform any other logic
-> >    return <div>Product ID: {productId}</div>;
+> >    // retrieved product details are stored in product state 
+> >    const [product, setProduct] = useState(null);
+> >
+> >    // use to fetch product details when productId changes
+> >    useEffect( () => {
+> >      // fetch product details based on productId
+> >      // this can be API call or data retrieval from database
+> >      const fetchProductDetails = async () => {
+> >        try {
+> >          const response = await fetch(`/api/products/${productId}`);
+> >          const data = await response.json();
+> >          setProduct(data);
+> >        } catch (error) {
+> >          console.error('Error fetching product details:', error);
+> >        }
+> >      };
+> >      fetchProductDetails();
+> >    }, [productId] );
+> >    // while waiting for product details to be fetched, we display loading message
+> >    if (!product) {
+> >      return <div>Loading...</div>;
+> >    }
+> >    // once product details are available, we render product information
+> >    return (
+> >      <div>
+> >        <h2>{product.name}</h2>
+> >        <p>{product.description}</p>
+> >        <p>Price: ${product.price}</p>
+> >        {/* Additional product details and components */}
+> >      </div>
+> >    );
 > >  }
 > >  
-> >  export default Product;
+> >  export default ProductDetails;
 > > ```
 > _To set up the route for products, you can add a new <Route> component in your route configuration:_
 > > ```javascript
-> >  <Route path="/products/:productId" component={ Product } />
-> >  // when you access URL like /products/123, Product component will be rendered, and 
+> >  <Route path="/products/:productId" component={ProductDetail} />
+> >  // when you access URL like /products/127, ProductDetail component will be rendered, and 
 > >  // productId parameter will be available for use through useParams hook
 > > ```
 
