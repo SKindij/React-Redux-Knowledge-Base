@@ -105,12 +105,11 @@ ___
   - [Remix](https://remix.run/) _for full stack web app_
   - [Astro](https://astro.build/) _for static-side generated app_
 
-
-
-
-
-
-
++ 📖 deploy and host React application
+  - [DigitalOcean](https://www.digitalocean.com/) _if you want to have full control_
+  - [Netlify](https://www.netlify.com/) _if you want to have someone taking care of everything_
+  - [Vercel](https://vercel.com/) _popular solution for Next.js_
+  - [Render](https://render.com/)
 
 
 
