@@ -97,6 +97,20 @@ It can be a bit complex to learn, but it's a powerful tool once you understand i
 
 ___
 
+## 📚 **R&nbsp;E&nbsp;A&nbsp;C&nbsp;T** Libraries for 2023
++ 📖 how to set up React project
+  - [Create React App](https://create-react-app.dev/)
+  - [Vite](https://vitejs.dev/) _for client-side app_
+  - [Next](https://nextjs.org/) _for server-side rendered app_
+  - [Remix](https://remix.run/) _for full stack web app_
+  - [Astro](https://astro.build/) _for static-side generated app_
 
 
-**R&nbsp;E&nbsp;A&nbsp;C&nbsp;T**
+
+
+
+
+
+
+
+
