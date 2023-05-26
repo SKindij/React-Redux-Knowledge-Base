@@ -53,6 +53,11 @@ React Router offers several features and benefits, including:
 > > 
 > > export {MainPage, ResidentialGates, IndustrialGates, GarageRollerShutters, WindowRollerShutters, Page404};
 > > ```
+
+&emsp; The `<Switch>` component is used to render only the first `<Route>` or `<Redirect>` that matches the current location. This is useful when you want to ensure that only one route is rendered at a time. 
+
+&emsp; The `<Route>` component can be used without the path prop to render content that should always be visible, regardless of the current location. This is useful for creating components such as headers, footers, or sidebars that are displayed on every page. 
+
 > _Here's an example of setting up routes:_
 > > ```javascript
 > >  import React from 'react';
@@ -65,7 +70,8 @@ React Router offers several features and benefits, including:
 > >    return (
 > >      <Router>
 > >        <div className="app">
-> >          <AppHeader />
+> >          {/* Route can be used without path prop */}  
+> >          <Route component={AppHeader} />
 > >          <main>
 > >            <Switch >
 > >            {/* ensures that only one route is rendered at a time */}  
@@ -76,6 +82,7 @@ React Router offers several features and benefits, including:
 > >              <Route path="/windowroller" component={WindowRollerShutters} />  
 > >              <Route path="*" component={Page404} />
 > >            </Switch>
+> >              <Route component={AppFooter} />
 > >          </main>
 > >        </div>
 > >      </Router>
@@ -92,7 +99,7 @@ React Router offers several features and benefits, including:
 + **render**: _allows rendering inline function as component instead of separate component file;_
 + **children**: _similar to render, but always renders, regardless of URL match._
 
-### &emsp; `useParams` hook allows you to access the dynamic parameters from the URL. 
+### `useParams` hook allows you to access the dynamic parameters from the URL. 
 
 > _For example, you have a route for displaying product details_\
 > _each product has unique identifier, which is used in URL to identify specific product_
@@ -146,6 +153,7 @@ React Router offers several features and benefits, including:
 > >  // productId parameter will be available for use through useParams hook
 > > ```
 
+  
 ## <a name="nav-link"></a>📖 Navigation and Linking
 
 &emsp; In React Router, `<Link>` component is used for internal navigation within your application. It provides declarative navigation, allowing you to navigate to different routes without causing a full page reload. On the other hand, `<a>` tag is a standard HTML anchor tag used for external navigation, which can cause a full page reload when clicked.
@@ -264,6 +272,47 @@ React Router offers several features and benefits, including:
 > >  
 > >  export default ResidentialGates;
 > > ```  
+
+&emsp; The `<Redirect>` component is used to perform programmatic redirects to a specified URL. It can be used, for example, after a form submission or when certain conditions are met. 
+> ```javascript
+>  import React, { useState } from 'react';
+>  import { Redirect } from 'react-router-dom';
+>  
+>  function LoginPage() {
+>    const [isLoggedIn, setLoggedIn] = useState(false);
+>  
+>    const handleLogin = () => {
+>      // perform login logic
+>      setLoggedIn(true);
+>    };
+>  
+>    if (isLoggedIn) {
+>      // go to dashboard after login
+>      return <Redirect to="/dashboard" />; 
+>    }
+>  
+>    return (
+>      <div>
+>        <h2>Login Page</h2>
+>        {/* Login form */}
+>        <button onClick={handleLogin}>Login</button>
+>      </div>
+>    );
+>  }
+>  
+>  export default LoginPage;
+> ```  
+  
+  
+## <a name="rendering"></a>📖 Route Rendering 
+  
+  
+  
+  
+
+  
+  
+  
   
   
   
