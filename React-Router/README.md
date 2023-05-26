@@ -192,6 +192,45 @@ React Router offers several features and benefits, including:
 > > export default MainPage;
 > > ```
 
-
+#### **history object** 
++ represents the navigation history of your application; 
++ allows to programmatically navigate between different URLs, manipulate browser history, and control navigation flow;
++ includes methods like:
+  * ``push(path, [state])``
+    - used to navigate to new URL and add it to navigation history stack;
+    - ```javascript
+        // path: string representing URL or path you want to navigate to
+        history.push('/new-page');
+        // state (optional): object that you can pass to carry state data along with URL
+        history.push('/products/123', { productId: 123, category: 'electronics' });
+      ```
+    - allows user to navigate back to previous page using browser's back button;
+  * ``replace(path, [state])``
+    - replaces the current URL in the navigation history stack with a new URL
+    - ```javascript
+        // path: string representing URL or path you want to navigate to
+        history.replace('/another-page');
+        // state (optional): object that carries state data to be accessed in destination component
+        history.replace('/products/147', { productId: 147, category: 'accessories' });
+      ```
+    - useful when you want to replace current URL in history stack, without adding new entry;
+    - commonly used for scenarios like form submissions or after completing certain action;    
+  * ``goBack()``
+    - used to navigate back to previous URL in navigation history stack;
+    - it is similar to browser's back button functionality;
+    - ```javascript
+        // path: string representing URL or path you want to navigate to
+        history.goBack();
+      ```  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 
