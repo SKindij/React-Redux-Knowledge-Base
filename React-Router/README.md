@@ -38,7 +38,7 @@ React Router offers several features and benefits, including:
 > >  - _package for sorting array of objects based on given property or properties;_
 
 
-## <a name="setting-routes"></a>📖 Setting up Routes
+## <a name="settings"></a>📖 Setting up Routes
 
 &emsp; Once installed, you can import necessary components from react-router-dom and define your routes. 
 
@@ -154,7 +154,7 @@ React Router offers several features and benefits, including:
 > > ```
 
   
-## <a name="nav-link"></a>📖 Navigation and Linking
+## <a name="navlink"></a>📖 Navigation and Linking
 
 &emsp; In React Router, `<Link>` component is used for internal navigation within your application. It provides declarative navigation, allowing you to navigate to different routes without causing a full page reload. On the other hand, `<a>` tag is a standard HTML anchor tag used for external navigation, which can cause a full page reload when clicked.
 
@@ -426,14 +426,30 @@ React Router offers several features and benefits, including:
 6. On the client-side, the JavaScript bundle is loaded and takes over the rendering and navigation of the application. The client-side JavaScript rehydrates the React components, attaching event handlers and state.
   
 &emsp; However, keep in mind that server-side rendering adds complexity to the development process and may require additional setup and configuration compared to client-side rendering.  
-  
-  
-  
-  
+   
 ### code-splitting & lazy-loading
+&emsp; They are techniques used in React Router to optimize the loading and performance of your application. These techniques allow you to split your application's code into smaller, more manageable chunks and load them on-demand when needed.  
+ 
+&emsp; **Code-splitting** involves breaking down your application's JavaScript bundle into smaller chunks, also known as "chunks" or "bundles." Each chunk contains a portion of your application's code, such as a specific route or component. By splitting your code, you can reduce the initial bundle size, which leads to faster loading times.
+
+&emsp; **Lazy-loading** refers to the practice of loading components or routes asynchronously when they are needed, rather than loading them all upfront. This means that components or routes are only loaded when a user navigates to them, resulting in faster initial page load times and improved performance.  
   
-  
-  
+> _React's lazy function enables lazy-loading of components._
+> _Suspense allows you to show fallback content, such as loading spinner, while lazily loaded component is being fetched._
+> > ```javascript  
+> >  const MyComponent = React.lazy(() => import('./MyComponent'));
+> >  
+> >  function App() {
+> >    return (
+> >      <div>
+> >        <Suspense fallback={<div>Loading...</div>}>
+> >          <MyComponent />
+> >        </Suspense>
+> >      </div>
+> >    );
+> >  }
+> > ```  
+    
 ### animations and transitions between routes 
   
   
