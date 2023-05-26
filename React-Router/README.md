@@ -355,9 +355,53 @@ React Router offers several features and benefits, including:
       
 ### checking user authentication status
   
+&emsp; Route guards and authentication involve checking whether a user is authenticated before allowing them to access certain routes or components. This can be done by creating a higher-order component (HOC) or a custom hook that performs the authentication check and redirects the user if necessary.   
   
-  
-  
+> ```javascript
+>  import React from 'react';
+>  import { Route, Redirect } from 'react-router-dom';
+>  
+>  // Assume you have a function that checks the user's authentication status
+>  const isAuthenticated = () => {
+>    // Check authentication status (e.g., from a token, session, or local storage)
+>    // Return true if authenticated, false otherwise
+>  };
+>  
+>  // PrivateRoute takes in component prop (which represents component to render) and
+>  //  any other props specified using spread operator (...rest)
+>  const PrivateRoute = ({ component: Component, ...rest }) => (
+>    <Route
+>      {...rest}
+>      render={(props) =>
+>        isAuthenticated() ? (
+>          <Component {...props} />
+>        ) : (
+>          <Redirect to="/login" /> // go to login page if not authenticated
+>        )
+>      }
+>    />
+>  );
+>  
+>  function Dashboard() {
+>    return <h2>Dashboard</h2>;
+>  }
+>  
+>  function App() {
+>    return (
+>      <Router>
+>        <div className="app">
+>          <Switch>
+>            <Route path="/login" component={LoginPage} />
+>            <PrivateRoute path="/dashboard" component={Dashboard} />
+>            <Redirect to="/login" />
+>          </Switch>
+>        </div>
+>      </Router>
+>    );
+>  }
+>  
+>  export default App;
+> ```
   
   
 
