@@ -307,9 +307,56 @@ React Router offers several features and benefits, including:
 ## <a name="guards"></a>📖 Route Guards and Authentication 
 
 ### using `<Prompt>` component
+&emsp; This component is used to prompt the user for confirmation before navigating away from the current page. It is often used to prevent accidental loss of data when the user has entered information in a form but has not submitted it yet. 
   
-  
+> ```javascript
+>  import React, { useState } from 'react';
+>  import { Prompt } from 'react-router-dom';
+>  
+>  function ContactForm() {
+>    const [formData, setFormData] = useState({ name: '', email: '' });
+>    const [isFormDirty, setFormDirty] = useState(false);
+>  
+>    const handleChange = (e) => {
+>      // use destructuring to extract name and value properties from e.target object
+>      const { name, value } = e.target;
+>      // callback func receives previous state (prevData)
+>      // spread operator (...prevData) create new object that copies all properties from prevData
+>      // only specific form field being changed is updated in state, while rest of data remains unchanged
+>      setFormData((prevData) => ({ ...prevData, [name]: value }));
+>      setFormDirty(true);
+>    };
+>  
+>    const handleSubmit = (e) => {
+>      e.preventDefault();
+>      // perform form submission logic
+>      setFormDirty(false);
+>    };
+>  
+>    return (
+>      <div>
+>        <h2>Contact Form</h2>
+>        <Prompt
+>          when={isFormDirty}
+>          message="Are you sure you want to leave? Your changes may not be saved."
+>        />
+>        <form onSubmit={handleSubmit}>
+>          {/* form fields */}
+>          <input type="text" name="name" value={formData.name} onChange={handleChange} />
+>          <input type="email" name="email" value={formData.email} onChange={handleChange} />
+>          <button type="submit">Submit</button>
+>        </form>
+>      </div>
+>    );
+>  }
+>  
+>  export default ContactForm;
+> ```
+      
 ### checking user authentication status
+  
+  
+  
   
   
   
