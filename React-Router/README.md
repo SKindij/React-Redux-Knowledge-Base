@@ -304,14 +304,27 @@ React Router offers several features and benefits, including:
 > ```  
   
   
-## <a name="rendering"></a>📖 Route Rendering 
+## <a name="guards"></a>📖 Route Guards and Authentication 
+
+### using `<Prompt>` component
   
+  
+### checking user authentication status
   
   
   
 
+## <a name="advanced"></a>📖 Advanced Topics  
+  
+### Server-side Rendering
   
   
+  
+### code-splitting & lazy-loading
+  
+  
+  
+### animations and transitions between routes 
   
   
   
