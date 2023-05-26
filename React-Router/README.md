@@ -223,8 +223,47 @@ React Router offers several features and benefits, including:
         history.goBack();
       ```  
   
-  
-  
+> _We can test this functionality, for example, in the ResidentialGate component._
+> > ```javascript
+> >  import React from 'react';
+> >  import { useLocation, useHistory } from 'react-router-dom';
+> >  
+> >  const ResidentialGates = () => {
+> >    const location = useLocation();
+> >    const history = useHistory();
+> >  
+> >    const handleProductClick = (productId) => {
+> >      history.push(`/residential/${productId}`);
+> >    };
+> >    // this will effectively resetting section or returning to beginning of section
+> >    const handleReplaceClick = () => {
+> >      history.replace('/residential');
+> >    };
+> >  
+> >    return (
+> >      <div>
+> >        <h2>Residential Gates</h2>
+> >  	  <p>Current location: {location.pathname}</p>
+> >        <p>Select a product:</p>
+> >        <ul>
+> >          <li onClick={() => handleProductClick('rd101')}>Product 101</li>
+> >          <li onClick={() => handleProductClick('rd102')}>Product 102</li>
+> >          <li onClick={() => handleProductClick('rd103')}>Product 103</li>
+> >  		<li onClick={() => handleProductClick('rd104')}>Product 104</li>
+> >  		<li onClick={() => handleProductClick('rd105')}>Product 105</li>
+> >        </ul>
+> >     {/* this is standard way to implement "Go Back" functionality in React Router */} 
+> >  	  <p>Go back to the previous action:</p>
+> >     <button onClick={history.goBack}>Go Back</button>
+> >     {/* it provides way for user to go back to initial state of Residential Gates section */}  
+> >  	  <p>Return to the beginning of the section:</p>
+> >  	  <button onClick={handleReplaceClick}>Replace</button>
+> >      </div>
+> >    );
+> >  };
+> >  
+> >  export default ResidentialGates;
+> > ```  
   
   
   
