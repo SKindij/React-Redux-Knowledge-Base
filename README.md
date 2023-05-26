@@ -56,23 +56,21 @@ This library allows you to manage your application's routes and navigation.
 + 📖 [Introduction](https://github.com/SKindij/Getting-Started-React.js/tree/main/React-Router#introduction)
     - need for routing in SPA
     - benefits and features
-+ 📖 [Setting up Routes](https://github.com/SKindij/Getting-Started-React.js/tree/main/React-Router#setting-routes)
++ 📖 [Route Rendering](https://github.com/SKindij/Getting-Started-React.js/tree/main/React-Router#setting-routes)
     - configuring basic routing in React app
+    - `<Switch>` and `<Redirect>` components
+    - `<Route>` component with `path` prop
     - setting up entry point for routing
     - route configuration options
     - using `useParams` hook
 + 📖 [Navigation and Linking](https://github.com/SKindij/Getting-Started-React.js/tree/main/React-Router#)
     - difference between `<Link>` and `<a>` tags
     - using `history` object or `useHistory` hook
-    - using `useLocation` hook
-+ 📖 [Route Rendering](https://github.com/SKindij/Getting-Started-React.js/tree/main/React-Router#)
-    - `<Switch>` component to render first matching route
-    - using `<Route>` component with no `path` prop
-    - using `<Redirect>` component
-+ 📖 [Route Guards and Authentication](https://github.com/SKindij/Getting-Started-React.js/tree/main/React-Router#)
+    - using `useLocation` hook  
++ 📖 [Route Guards and Authentication](https://github.com/SKindij/Getting-Started-React.js/tree/main/React-Router#guards)
     - using `<Prompt>` component
     - checking user authentication status
-+ 📖 [Advanced Topics](https://github.com/SKindij/Getting-Started-React.js/tree/main/React-Router#)
++ 📖 [Advanced Topics](https://github.com/SKindij/Getting-Started-React.js/tree/main/React-Router#advance)
     - Server-side Rendering
     - code-splitting & lazy-loading
     - animations and transitions between routes
