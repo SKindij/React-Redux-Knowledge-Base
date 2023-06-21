@@ -93,7 +93,7 @@ It can be a bit complex to learn, but it's a powerful tool once you understand i
     - immutability
     - testing
 
-___
+- - -
 
 ## 📚 **R&nbsp;E&nbsp;A&nbsp;C&nbsp;T** Libraries for 2023
 + 📖 how to set up React project
@@ -108,6 +108,20 @@ ___
   - [Netlify](https://www.netlify.com/) _if you want to have someone taking care of everything_
   - [Vercel](https://vercel.com/) _popular solution for Next.js_
   - [Render](https://render.com/)
+
+- - -
+
+## 📚 Extracurricular reading 
+
++  📖 user authentication in React app
+  - popular tools and libraries
+  - custom user auth system
++  📖 
+
+
+
+
+
 
 
 
