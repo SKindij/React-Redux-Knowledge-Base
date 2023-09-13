@@ -10,15 +10,52 @@ First, you need to set up Redux in your React application.
 ```
 
 ### Here's an overview of React-Redux concepts and how they work:
+
 > I'd be happy to explain the theory of using Redux with code examples in the context of a relationship between a manufacturer (supplier of spare parts) and a service center (recipient of these spare parts). In this scenario, we'll create a simple Redux application to manage the spare parts inventory and requests from the service center.
+
+```lua
+my-redux-spare-parts-app/
+|-- src/
+|   |-- actions.js
+|   |-- manufacturerReducer.js
+|   |-- serviceCenterReducer.js
+|   |-- rootReducer.js
+|   |-- store.js
+|   |-- components/
+|   |   |-- ManufacturerDashboard.js
+|   |   |-- ServiceCenterDashboard.js
+|   |-- App.js
+|-- package.json
+|-- index.js
+
+```
+
+In this structure:
++ **src/** is the main directory for your application source code.
++ **actions.js** contains your Redux action creators.
++ **manufacturerReducer.js** and **serviceCenterReducer.js** are Redux reducers for the manufacturer and service center, respectively.
++ **rootReducer.js** combines all reducers into a single root reducer.
++ **store.js** creates the Redux store and exports it.
++ **components/** is a directory where you'd place your React components related to the manufacturer and service center.
++ **App.js** is your main application component where you might connect Redux store and render the ManufacturerDashboard and ServiceCenterDashboard components.
++ **package.json** contains your project's dependencies and configuration.
++ **index.js** is the entry point of your application where you typically render your React app and connect it to the Redux store.
+
+> _Please note that this structure is a simplified example, and in a real-world application, you might have a more complex project structure with additional directories and files as your project grows._
+
 
 #### Store
 
 The store is the central data repository for your application's state. It holds the entire state tree of your application. In Redux, you create a store using the createStore function.
 
 ```javascript
+// store.js
+import { createStore } from 'redux';
+import rootReducer from './reducers';
 
+const store = createStore(rootReducer);
 
+export default store;
 ```
 
 
