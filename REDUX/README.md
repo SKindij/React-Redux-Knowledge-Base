@@ -148,6 +148,22 @@ const serviceCenterReducer = (state = initialState, action) => {
 export default serviceCenterReducer;
 ```
 
+##### Combining Reducers
+
+```javascript
+// rootReducer.js
+import { combineReducers } from 'redux';
+import manufacturerReducer from './manufacturerReducer';
+import serviceCenterReducer from './serviceCenterReducer';
+
+const rootReducer = combineReducers({
+  manufacturer: manufacturerReducer,
+  serviceCenter: serviceCenterReducer,
+});
+
+export default rootReducer;
+```
+
 #### Provider
 
 To make the Redux store accessible to your React components, you wrap your app with the Provider component provided by React-Redux.
@@ -165,28 +181,82 @@ ReactDOM.render(
 );
 ```
 
-#### Connect
+#### Connect and Usage in Components
 
 To connect your React components to the Redux store, you use the connect function provided by React-Redux. This function allows components to access state and dispatch actions.
 
 ```javascript
+// ManufacturerDashboard.js
+import React from 'react';
+import { connect } from 'react-redux';
+import { requestSparePart } from './actions';
 
+function ManufacturerDashboard({ requestSparePart }) {
+  const handleRequestSparePart = (partName, quantity) => {
+    requestSparePart(partName, quantity);
+  };
 
+  return (
+    <div>
+      <h2>Manufacturer Dashboard</h2>
+      <button onClick={() => handleRequestSparePart('Engine', 5)}>
+        Request Engine Parts
+      </button>
+      {/* Other manufacturer-related components */}
+    </div>
+  );
+}
+
+const mapDispatchToProps = {
+  requestSparePart,
+};
+
+export default connect(null, mapDispatchToProps)(ManufacturerDashboard);
 ```
 
-
-#### Usage in Components
-
-You can now use the connected component in your application, and it will have access to the Redux state and actions.
-
+You can use the connected component in your application, and it will have access to the Redux state and actions.
 
 ```javascript
+// ServiceCenterDashboard.js
+import React from 'react';
+import { connect } from 'react-redux';
+import { receiveSparePart } from './actions';
 
+function ServiceCenterDashboard({ sparePartsInventory, receiveSparePart }) {
+  const handleReceiveSparePart = (partName, quantity) => {
+    receiveSparePart(partName, quantity);
+  };
 
+  return (
+    <div>
+      <h2>Service Center Dashboard</h2>
+      <ul>
+        {sparePartsInventory.map((part, index) => (
+          <li key={index}>
+            {part.partName} - Quantity: {part.quantity}
+          </li>
+        ))}
+      </ul>
+      <button onClick={() => handleReceiveSparePart('Engine', 3)}>
+        Receive Engine Parts
+      </button>
+      {/* Other service center-related components */}
+    </div>
+  );
+}
+
+const mapStateToProps = (state) => {
+  return {
+    sparePartsInventory: state.serviceCenter.sparePartsInventory,
+  };
+};
+
+const mapDispatchToProps = {
+  receiveSparePart,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ServiceCenterDashboard);
 ```
-
-
-
 
 - - -
 
